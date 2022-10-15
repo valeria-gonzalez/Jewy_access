@@ -2,7 +2,7 @@
 
 👋👋 Hola a todos 👋👋
 
-Este es el repositorio de equipo para el proyecto SG Resident. 
+Este es el repositorio de equipo para el proyecto Jewlery & Accessories. 
 
 Aqui podemos reunir las diferentes versiones que vayamos haciendo de nuestro proyecto. 
 
@@ -32,7 +32,7 @@ Aqui podemos reunir las diferentes versiones que vayamos haciendo de nuestro pro
 
 1. **Crear BRANCH (rama) propia en base a la RAMA ORIGINAL (master branch)**, así puedes trabajar sobre una copia de los archivos
 originales sin afectar los originales (o la master branch), en caso de que decidas que no te gustaron los cambios que hiciste.
-Puedes llamar a tú rama de acuerdo al cambio que le harás, por ejemplo: "1-agregar-pagina-agregar-residente"
+Puedes llamar a tú rama de acuerdo al cambio que le harás, por ejemplo: *"1-agregar-pagina-agregar-residente"*
 
 2. **Realizar los cambios que quieras.** Recuerda comentar tú código para que los demás lo puedan entender, todos debemos 
 trabajar sobre el código de los demás! Recuerden, si están modificando un archivo y deciden volver a subirlo con los nuevos 
