@@ -12,7 +12,7 @@ Aqui podemos reunir las diferentes versiones que vayamos haciendo de nuestro pro
      - Realizamos un **COMMIT** cada que cambiamos nuestro repositorio, es importante ponerle el asunto correcto a nuestros cambios
        antes de realizarlos para que los demás sepan que hicimos. Por ejemplo, si solucionamos un bug, podemos describir el 
        **COMMIT** como: 
-       *"fix: Solución al titulo que no se veia"*   
+       *"fix: Solución titulo que no se veia"*   
             
     👉Aqui hay una guia sobre como nombrar a nuestros **COMMITS** (cambios): 
     https://codigofacilito.com/articulos/41#!
