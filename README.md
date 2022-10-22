@@ -38,19 +38,32 @@ Puedes llamar a tú rama de acuerdo al cambio que le harás, por ejemplo: *"1-ag
 trabajar sobre el código de los demás! Recuerden, si están modificando un archivo y deciden volver a subirlo con los nuevos 
 cambios, están haciendo un **COMMIT**. YAAAY!! (Pero lo deben describir apropiadamente). 
 
-3. **Crear PULL REQUEST** para pedirle al creador de la rama original que vea los cambios que hiciste en tú rama y los una
+3. **Publicar o hacer PUSH tus COMMITS a tú rama.** Se dice que cuando terminamos de modificar los archivos (hacer commits), los subimos todos haciendo "push" a nuestra rama del repositorio principal. 
+
+4. **Crear PULL REQUEST** para pedirle al creador de la rama original que vea los cambios que hiciste en tú rama y los una
 con la rama original. Recuerda agregar comentarios a tú pull request para que sepan para qué es.
 
-4. **Atender a los comentarios de respuesta.** Cuando realizas un **PULL REQUEST**, el dueño de la rama principal decide si 
+5. **Atender a los comentarios de respuesta.** Cuando realizas un **PULL REQUEST**, el dueño de la rama principal decide si 
 aceptar unir tus cambios a la rama original o no, a veces decide no hacerlo por errores en el código, los cuales te los hará 
 saber a traves de los comentarios de respuesta a tú **PULL REQUEST**. 
 
-5. **MERGE (unir) el PULL REQUEST**, una vez que se ha decidido que los cambios son adecuados (*"no interfieren con la rama 
+6. **MERGE (unir) el PULL REQUEST**, una vez que se ha decidido que los cambios son adecuados (*"no interfieren con la rama 
 principal"*), el dueño de la rama original **ACEPTARÁ** el **PULL REQUEST**. WOO HOO!!
 
-6. **ELIMINAR tu rama**, una vez que ya terminaste de hacerle los cambios a tú rama, la puedes eliminar! 
+7. **ELIMINAR tu rama**, una vez que ya terminaste de hacerle los cambios a tú rama, la puedes eliminar! 
 
-7. **REPETIR** el proceso. 
+8. **REPETIR** el proceso. 
+
+## ACORDEÓN DE COMO NOMBRAR NUESTROS COMMITS
+El mensaje de un commit o cambio consiste en 3 diferentes partes separadas por una linea en blanco: **el titulo, un cuerpo opcional y un pie opcional.** Esto se hace para que otros entiendan los cambios que hicimos, aquí están alguno de los casos más comunes de cómo nombrar a nuestros commits:
+
+- feat: Una nueva caracteristica.
+- fix: Se soluciono un bug.
+- docs: Se realizaron cambios en la documentacion.
+- style: Se aplico formato, comas y puntos faltantes, etc; Sin cambios en el codigo.
+- refactor: Refactorizacion del codigo en produccion.
+- test: Se añadieron pruebas, refactorizacion de pruebas; Sin cambios en el codigo.
+- chore: Actualizacion de tareas de build, configuracion del admin. de paquetes; Sin cambios en el codigo.
 
 ## ACORDEÓN DE TÉRMINOS
 Son muchos términos y al principio dan miedo!!😭😭 Aqui les dejo una definición rápida de cada término:
