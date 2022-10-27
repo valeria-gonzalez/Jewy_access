@@ -1,8 +1,7 @@
 <?php
-include 'configuraciones/conexion_bd.php';
-$query = "SELECT * FROM cliente";
-$consulta =pg_query($conexion,$query);
-
+include_once '../configuraciones/conexion_bd.php';
+$query_consulta = "SELECT * FROM cliente";
+$consulta=pg_query($conexion,$query_consulta);
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +33,7 @@ $consulta =pg_query($conexion,$query);
                     <td><?php echo $obj->primer_apellido?></td>
                     <td><?php echo $obj->segundo_apellido?></td>
                     <td><?php echo $obj->telefono?></td>
-                    <td> <a href="#">Editar</a> - <a href="#">Borrar</a> </td>
+                    <td><a href="#">Editar</a> - <a href="clientes.php?id_clientes=<?php echo $obj->id_cliente;?>">Borrar</a></td>
                 </tr>
                 <?php } } }?>
             </tbody>
