@@ -13,7 +13,7 @@ $consulta=pg_query($conexion,$query_consulta);
     <title>Tabla de clientes</title>
 </head>
 <body>
-    <h3 class="text-center">Tabla Dinámica</h3>
+    <h3 class="text-center">Tabla Dinámica Clientes</h3>
     <div class="table-responsive table-hover" id="tablaconsulta">
         <table class="table">
             <thead class="text-muted">
