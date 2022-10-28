@@ -1,5 +1,3 @@
 <?php 
-
-    echo "Bienvenido a la aplicacion" ;
-
+    include '../configuraciones/conexion_bd.php'
 ?>
