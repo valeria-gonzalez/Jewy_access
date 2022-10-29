@@ -24,6 +24,6 @@
 <body>
     <!-- Botones para regresar a la pagina anterior o al inicio -->
     <br><button type="button" onclick="location.href='clientes.php'">Atras</button>
-    <button type="button" onclick="location.href='http://localhost/Jewy_accesv3/'">Inicio</button>
+    <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Inicio</button>
 </body>
 </html>

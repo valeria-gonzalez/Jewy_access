@@ -32,9 +32,11 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->categoria?></td>
                     <td><?php echo $obj->precio?></td>
                     <td><?php echo $obj->existencia?></td>
-                    <td><a href="#">Editar</a> - <a href="#">Borrar</a></td>
+                    <td><a href="#">Editar</a> - <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>">Borrar</a> - <a href="registar_productos.php">Agregar</a> </td>
+                    
                 </tr>
                 <?php } } }?>
+                <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Inicio</button>
             </tbody>
 
         </table>

@@ -54,12 +54,16 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->primer_apellido?></td>
                     <td><?php echo $obj->segundo_apellido?></td>
                     <td><?php echo $obj->telefono?></td>
-                    <!-- Botones que podrían tener utilidad -->
-                    <td><a href="#">Editar</a> - <a href="#">Borrar</a></td>
+                    <!-- Botones que podrían tener utilidad 
+                        UPDATE: dando utilidad al boton de "borrar" para eliminar clientes, llamando a "eliminar_clientes.php" y guardando el id del cliente en variable "id_clientes" con ayuda de código php y el obj que apunta a "id_cliente" en la base de datos-->
+                    <td><a href="#">Editar</a> - <a href="eliminar_cliente.php?id_clientes=<?php echo $obj->id_cliente;?>">Borrar</a> - <a href="registar_clientes.php">Agregar</a> </td>
+                
                 </tr>
                 <!-- Abrimos de nuevo código php para cerrar todas nuestras iteraciones
                     abiertas-->
                 <?php } } }?>
+                <!-- Botón para volver al index -->
+                <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Inicio</button>
             </tbody>
                             <!-- Básicamente en los demás archivos de visualización es lo mismo
                             solamente debes cambiar en el query_consulta el nombre de la tabla,
