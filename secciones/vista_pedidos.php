@@ -49,9 +49,11 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->pais?></td>
                     <td><?php echo $obj->codigo_postal?></td>
                     <td><?php echo $obj->referencia?></td>
-                    <td><a href="#">Editar</a> - <a href="#">Borrar</a></td>
+                    <td><a href="#">Editar</a> - <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">Borrar</a> - <a href="registar_pedidos.php">Agregar</a> </td>
+                    
                 </tr>
                 <?php } } }?>
+                <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Inicio</button>
             </tbody>
 
         </table>

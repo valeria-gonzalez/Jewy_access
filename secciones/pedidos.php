@@ -40,6 +40,6 @@ include_once "../configuraciones/conexion_bd.php";
     <input type="text" name="referencia"><br><br>
     <input type="submit" value="Registrar"></form><br>    
 
-    <button type="button" onclick="location.href='http://localhost/Jewy_accesv3/'">Atras</button>
+    <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Atras</button>
 </body>
 </html>

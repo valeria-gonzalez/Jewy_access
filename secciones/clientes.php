@@ -27,6 +27,6 @@ include_once "../configuraciones/conexion_bd.php";
     <!--Boton con el que registra los datos ingresados-->
     <input type="submit" value="Registrar"></form><br>    
     <!--Boton que permite regresar a la pagina anterior-->
-    <button type="button" onclick="location.href='http://localhost/Jewy_accesv3/'">Atras</button>
+    <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Atras</button>
 </body>
 </html>
