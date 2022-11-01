@@ -6,8 +6,8 @@
             '$_REQUEST[precio]','$_REQUEST[existencia]')");
 
     $consulta=pg_query($conexion,$query);
+    if($consulta)echo 'El producto se registro correctamente';
     pg_close();
-    echo 'El producto se registro correctamente';
 ?>
 <!DOCTYPE html>
 <html lang="en">
