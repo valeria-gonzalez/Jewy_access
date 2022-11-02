@@ -58,23 +58,16 @@ $cerrar_conexion = pg_close($conexion);
                     <td><?php echo $obj->existencia?></td>
                     <td><?php echo $obj->materiales?></td> <!--Agregue el string resultante de materiales con string_agg-->
                     <td>
-                        <a id = "Edit" href  = "../configuraciones/mod_productos.php">
-                            <button class = "button">Editar</button>
-                        </a> 
-                        <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>">
-                            <button class = "button">Borrar</button>
-                        </a> 
-                        <a href="productos.php">
-                            <button class = "button">Agregar</button>
-                        </a> 
+                        <a id = "Edit" href  = "../configuraciones/mod_productos.php">Editar</a> 
+                        <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>">borrar</a> 
                     </td>
                     
                 </tr>
                 <?php } } }?>
-                <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Inicio</button>
             </tbody>
-
         </table>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_productos.php'">Registrar</button>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div> <!-- Fin de la tabla -->
 </body>
 </html>

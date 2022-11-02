@@ -36,14 +36,13 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td>
                         <a href="#">Editar</a>
                         <a href="eliminar_material.php?id_materiales=<?php echo $obj->id_material;?>">Borrar</a>
-                        <a href="registar_materiales.php">Agregar</a>
                     </td>                    
                 </tr>
                 <?php } } }?>
-                <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Inicio</button>
             </tbody>
-
         </table>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_materiales.php'">Registrar</button>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div>
 </body>
 </html>
