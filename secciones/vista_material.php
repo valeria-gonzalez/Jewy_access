@@ -12,6 +12,16 @@ $consulta=pg_query($conexion,$query_consulta);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de clientes</title>
 </head>
+<script>
+    function confirmacion(){
+        var respuesta = confirm("¿Está seguro que desea eliminar este registro?");
+
+        if(respuesta == true)
+            return true;
+        else
+            return false;
+    }
+</script>
 <body>
     <h3 class="text-center">Tabla Dinámica Materiales</h3>
     <div class="table-responsive table-hover" id="tablaconsulta">
@@ -35,7 +45,9 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->existencia?></td>
                     <td>
                         <a href="#">Editar</a>
-                        <a href="eliminar_material.php?id_materiales=<?php echo $obj->id_material;?>">Borrar</a>
+                        <a href="eliminar_material.php?id_materiales=<?php echo $obj->id_material;?>" onclick='return confirmacion()'>
+                            Borrar
+                        </a>
                         <a href="registar_materiales.php">Agregar</a>
                     </td>                    
                 </tr>

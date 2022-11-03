@@ -21,6 +21,17 @@ $consulta=pg_query($conexion,$query_consulta);
     <!-- Título de la página -->
     <title>Tabla de clientes</title>
 </head>
+<!-- Script de alerta para eliminar -->
+<script>
+    function confirmacion(){
+        var respuesta = confirm("¿Está seguro que desea eliminar este registro?");
+
+        if(respuesta == true)
+            return true;
+        else
+            return false;
+    }
+</script>
 <body>
     <!-- Nombre de la tabla -->
     <h3 class="text-center">Tabla Dinámica Clientes</h3>
@@ -56,7 +67,14 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->telefono?></td>
                     <!-- Botones que podrían tener utilidad 
                         UPDATE: dando utilidad al boton de "borrar" para eliminar clientes, llamando a "eliminar_clientes.php" y guardando el id del cliente en variable "id_clientes" con ayuda de código php y el obj que apunta a "id_cliente" en la base de datos-->
-                    <td><a href="#">Editar</a> - <a href="eliminar_cliente.php?id_clientes=<?php echo $obj->id_cliente;?>">Borrar</a> - <a href="registar_clientes.php">Agregar</a> </td>
+                    <td>
+                        <a href="#">Editar</a>
+                            <!-- Incluyendo nuestro script c: -->
+                        <a href="eliminar_cliente.php?id_clientes=<?php echo$obj->id_cliente;?>" onclick='return confirmacion()'>
+                            Borrar
+                        </a> 
+                        <a href="registar_clientes.php">Agregar</a> 
+                </td>
                 
                 </tr>
                 <!-- Abrimos de nuevo código php para cerrar todas nuestras iteraciones

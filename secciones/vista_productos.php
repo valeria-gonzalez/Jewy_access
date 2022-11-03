@@ -32,6 +32,16 @@ $cerrar_conexion = pg_close($conexion);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de clientes</title>
 </head>
+<script>
+    function confirmacion(){
+        var respuesta = confirm("¿Está seguro que desea eliminar este registro?");
+
+        if(respuesta == true)
+            return true;
+        else
+            return false;
+    }
+</script>
 <body>
     <h3 class="text-center">Tabla Dinámica Prodcutos</h3>
     <div class="table-responsive table-hover" id="tablaconsulta">
@@ -61,7 +71,7 @@ $cerrar_conexion = pg_close($conexion);
                         <a id = "Edit" href  = "../configuraciones/mod_productos.php">
                             <button class = "button">Editar</button>
                         </a> 
-                        <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>">
+                        <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>" onclick='return confirmacion()'>
                             <button class = "button">Borrar</button>
                         </a> 
                         <a href="productos.php">
