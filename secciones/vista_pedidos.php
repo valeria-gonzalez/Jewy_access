@@ -75,10 +75,10 @@ $cerrar_conexion = pg_close($conexion);
                     </td>
                 </tr>
                 <?php } } }?>
-                <button type="button" onclick="location.href='http://localhost/Jewy_access/'">Inicio</button>
             </tbody>
-
         </table>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_pedidos.php'">Registrar</button>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div>
 </body>
 </html>
