@@ -20,9 +20,8 @@
             return $_POST['numExistencia'];
     }
     
-    function getId(){
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
-            return $_POST['numId'];
+    function getId(){ //esta funcion es para obtener el id del producto a modificar mediante vista_orductos.php
+        return $_GET['id_productos'];
     }
 
 ?>

@@ -49,8 +49,9 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->pais?></td>
                     <td><?php echo $obj->codigo_postal?></td>
                     <td><?php echo $obj->referencia?></td>
-                    <td><a href="#">Editar</a> - <a href="#">Borrar</a>
-                    
+                    <td> 
+                        <a href="#">Borrar</a>
+                    </td>
                 </tr>
                 <?php } } }?>
             </tbody>
