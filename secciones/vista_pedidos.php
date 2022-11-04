@@ -70,10 +70,10 @@ $cerrar_conexion = pg_close($conexion);
                     <td><?php echo $obj->codigo_postal?></td>
                     <td><?php echo $obj->referencia?></td>
                     <td>
-                        <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
+                        <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" >
                                 <button class = "button">Editar</button>
                             </a> 
-                            <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
+                            <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
                                 <button class = "button">Borrar</button>
                             </a> 
                     </td>
@@ -84,5 +84,6 @@ $cerrar_conexion = pg_close($conexion);
         <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_pedidos.php'">Registrar</button>
         <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div>
+    <script src="../js/alerta_eliminar.js"></script>
 </body>
 </html>

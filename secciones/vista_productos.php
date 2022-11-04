@@ -61,7 +61,7 @@ $cerrar_conexion = pg_close($conexion);
                     <a id = "Edit" href  = "../configuraciones/mod_productos.php?id_productos=<?php echo $obj->id_producto;?>">
                             <button class = "button">Editar</button>
                         </a>
-                        <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>">
+                        <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>" onclick='return confirmacion()'>
                             <button class = "button">Borrar</button>
                         </a>
                     </td>
@@ -72,5 +72,6 @@ $cerrar_conexion = pg_close($conexion);
         <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_productos.php'">Registrar</button>
         <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div> <!-- Fin de la tabla -->
+    <script src="../js/alerta_eliminar.js"></script>
 </body>
 </html>
