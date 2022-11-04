@@ -70,8 +70,12 @@ $cerrar_conexion = pg_close($conexion);
                     <td><?php echo $obj->codigo_postal?></td>
                     <td><?php echo $obj->referencia?></td>
                     <td>
-                        <a href="#">Editar</a>
-                        <a href="#">Borrar</a>
+                        <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
+                            <button class = "button">Editar</button>
+                        </a> 
+                        <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
+                            <button class = "button">Borrar</button>
+                        </a> 
                     </td>
                 </tr>
                 <?php } } }?>

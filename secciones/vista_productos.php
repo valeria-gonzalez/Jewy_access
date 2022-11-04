@@ -33,7 +33,7 @@ $cerrar_conexion = pg_close($conexion);
     <title>Tabla de clientes</title>
 </head>
 <body>
-    <h3 class="text-center">Tabla Dinámica Prodcutos</h3>
+    <h3 class="text-center">Tabla Dinámica Productos</h3>
     <div class="table-responsive table-hover" id="tablaconsulta">
         <table class="table">
             <thead class="text-muted">
@@ -58,7 +58,7 @@ $cerrar_conexion = pg_close($conexion);
                     <td><?php echo $obj->existencia?></td>
                     <td><?php echo $obj->materiales?></td> <!--Agregue el string resultante de materiales con string_agg-->
                     <td>
-                        <a id = "Edit" href  = "../configuraciones/mod_productos.php">
+                        <a id = "Edit" href  = "../configuraciones/mod_productos.php?id_productos=<?php echo $obj->id_producto;?>">
                             <button class = "button">Editar</button>
                         </a> 
                         <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>">
