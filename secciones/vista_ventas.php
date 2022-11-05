@@ -29,7 +29,6 @@ $consulta=pg_query($conexion,$query_consulta);
                 <th class="text-center">País</th>
                 <th class="text-center">Código postal</th>
                 <th class="text-center">Referencia</th>
-                <th class="text-center">Precio</th>
             </thead>
             <tbody>
                 <?php
@@ -49,9 +48,6 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->pais?></td>
                     <td><?php echo $obj->codigo_postal?></td>
                     <td><?php echo $obj->referencia?></td>
-                    <td> 
-                        <a href="#">Borrar</a>
-                    </td>
                 </tr>
                 <?php } } }?>
             </tbody>
