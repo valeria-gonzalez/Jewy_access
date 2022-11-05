@@ -56,7 +56,9 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->telefono?></td>
                     <!-- Botones que podrían tener utilidad 
                         UPDATE: dando utilidad al boton de "borrar" para eliminar clientes, llamando a "eliminar_clientes.php" y guardando el id del cliente en variable "id_clientes" con ayuda de código php y el obj que apunta a "id_cliente" en la base de datos-->
-                    <a href="eliminar_cliente.php?id_clientes=<?php echo $obj->id_cliente;?>">Borrar</a>
+                        <a href="eliminar_cliente.php?id_clientes=<?php echo$obj->id_cliente;?>" onclick='return confirmacion()'>
+                            Borrar
+                        </a> 
                     
                 
                 </tr>
@@ -76,5 +78,6 @@ $consulta=pg_query($conexion,$query_consulta);
         <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_clientes.php'">Registrar</button>
         <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div>
+    <script src="../js/alerta_eliminar.js"></script>
 </body>
 </html>

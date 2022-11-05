@@ -34,7 +34,9 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->precio?></td>
                     <td><?php echo $obj->existencia?></td>
                     <td>
-                        <a href="eliminar_material.php?id_materiales=<?php echo $obj->id_material;?>">Borrar</a>
+                    <a href="eliminar_material.php?id_materiales=<?php echo $obj->id_material;?>" onclick='return confirmacion()'>
+                            Borrar
+                        </a>
                     </td>                    
                 </tr>
                 <?php } } }?>
@@ -43,5 +45,6 @@ $consulta=pg_query($conexion,$query_consulta);
         <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_materiales.php'">Registrar</button>
         <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div>
+    <script src="../js/alerta_eliminar.js"></script>
 </body>
 </html>
