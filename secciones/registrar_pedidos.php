@@ -47,9 +47,6 @@
 
             if($boton=='Registrar producto en pedido')
             {
-                $rsCount=pg_query($conexion,"SELECT * FROM pedido_contiene");
-                $cant=pg_fetch_object($rsCount);
-                $cant->cantidad = 0;
                     $pg_mat_agr = "INSERT INTO pedido_contiene 
                                     VALUES ($id->max,'$_REQUEST[selProducto]', '$_REQUEST[cantidad]')";
                     $consulta_mat=pg_query($conexion,$pg_mat_agr);

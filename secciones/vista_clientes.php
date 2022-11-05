@@ -54,12 +54,13 @@ $consulta=pg_query($conexion,$query_consulta);
                     <td><?php echo $obj->primer_apellido?></td>
                     <td><?php echo $obj->segundo_apellido?></td>
                     <td><?php echo $obj->telefono?></td>
+                    <td>
                     <!-- Botones que podrían tener utilidad 
                         UPDATE: dando utilidad al boton de "borrar" para eliminar clientes, llamando a "eliminar_clientes.php" y guardando el id del cliente en variable "id_clientes" con ayuda de código php y el obj que apunta a "id_cliente" en la base de datos-->
                         <a href="eliminar_cliente.php?id_clientes=<?php echo$obj->id_cliente;?>" onclick='return confirmacion()'>
                             Borrar
                         </a> 
-                    
+                    </td>
                 
                 </tr>
                 <!-- Abrimos de nuevo código php para cerrar todas nuestras iteraciones

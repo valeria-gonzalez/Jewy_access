@@ -4,15 +4,15 @@
 
 CREATE TABLE cliente(
   	ID_CLIENTE		 SERIAL  		PRIMARY KEY, /*les cambie el tipo de dato para q se genere solo, y el nombre tmbn para mas corto, jeje*/
-	NOMBRE  		 VARCHAR(50)	NOT NULL, /*mejor lo deje como 50 pq me dio flojera pensar en hacer la tabla nombre*/
-	PRIMER_APELLIDO  VARCHAR(30)	NULL, /*aumente el tamaño de varchar por apellidos mas largos, varchar se ajusta*/
+	NOMBRE  		 VARCHAR(50)	NOT NULL CHECK (NOMBRE <> ''), /*mejor lo deje como 50 pq me dio flojera pensar en hacer la tabla nombre*/
+	PRIMER_APELLIDO  VARCHAR(30)	NOT NULL CHECK (PRIMER_APELLIDO <> ''), /*aumente el tamaño de varchar por apellidos mas largos, varchar se ajusta*/
 	SEGUNDO_APELLIDO VARCHAR(30)	NULL,
-	TELEFONO		 VARCHAR(20)	NULL
+	TELEFONO		 VARCHAR(20)	NULL 
 );
 
-select table_name,column_name,udt_name,character_maximum_length,is_nullable 
+/*select table_name,column_name,udt_name,character_maximum_length,is_nullable 
   from information_schema.columns 
-  where table_name = 'venta'; /*PARA PODER VER CADA TABLA*/
+  where table_name = 'venta'; PARA PODER VER CADA TABLA*/
 
 
 /*----Crear tabla PEDIDO*/
@@ -37,10 +37,29 @@ CREATE TABLE pedido(
 	ON DELETE SET NULL /*nos permite definir llave foranea y lo que se hace en demas tablas si se elimina*/
 );
 
+CREATE FUNCTION SP_VENDIDO() RETURNS TRIGGER
+AS
+$$
+BEGIN
+	insert into venta values (new.id_pedido,new.fecha_pedido,
+				  new.fecha_entrega,new.hora_entrega,
+				  new.precio,new.punto_entrega,new.calle,
+				  new.no_casa,new.colonia,new.estado,
+				  new.pais,new.codigo_postal,
+				  new.referencia,new.vendido,new.id_cliente);
+
+RETURN new;
+END
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER TR_VENDIDO AFTER UPDATE ON PEDIDO
+FOR EACH ROW
+EXECUTE PROCEDURE SP_VENDIDO();
+
 /*---Crear tabla PRODUCTO*/
 CREATE TABLE producto(
   	ID_PRODUCTO		SERIAL  		PRIMARY KEY,
-	NOMBRE  		VARCHAR(50)	 	NOT NULL,
+	NOMBRE  		VARCHAR(50)	 	NOT NULL CHECK (NOMBRE <> ''),
 	CATEGORIA		VARCHAR(1) 		NULL, /*la categoria es solo indicar si es hombre o mujer (H/M)*/
 	PRECIO 			DECIMAL(6,2) 	NOT NULL,
 	EXISTENCIA	 	INT  			NOT NULL /*hice existencia int pq YOLO y pq numeric puede ser decimal pero como vean*/
@@ -62,7 +81,7 @@ CREATE TABLE pedido_contiene(
 /*---Crear tabla MATERIAL*/
 CREATE TABLE material(
   	ID_MATERIAL		SERIAL  		PRIMARY KEY,
-	NOMBRE  		VARCHAR(50)	 	NOT NULL,
+	NOMBRE  		VARCHAR(50)	 	NOT NULL CHECK (NOMBRE <> ''),
 	PROVEEDOR		VARCHAR(50) 	NULL,
 	PRECIO 			DECIMAL(6,2) 	NOT NULL,
 	EXISTENCIA	 	INT  			NOT NULL
@@ -101,9 +120,24 @@ CREATE TABLE venta(
 	ON DELETE SET NULL /*nos permite definir llave foranea y lo que se hace en demas tablas si se elimina*/
 );
 
+CREATE FUNCTION SP_ELIMINARPED() RETURNS TRIGGER
+AS
+$$
+BEGIN
+DELETE FROM PEDIDO
+WHERE VENDIDO = '1';
+RETURN new;
+END
+$$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER TR_ELIMINARPED AFTER INSERT ON VENTA
+FOR EACH ROW
+EXECUTE PROCEDURE SP_ELIMINARPED();
 
 
-INSERT INTO material(NOMBRE, PROVEEDOR, PRECIO, EXISTENCIA) VALUES
+
+/*INSERT INTO material(NOMBRE, PROVEEDOR, PRECIO, EXISTENCIA) VALUES
 					('Cadena 30cm', 'Accesorios Higareda', 2.50, 6), 
 					('Cierre dorado', 'Accesorios Higareda', 0.80, 6),
 					('Colgije Fantasma', 'Accesorios Martha', 2.50, 6),
@@ -145,4 +179,7 @@ select * from pedido;
 INSERT INTO pedido_contiene (ID_PEDIDO, ID_PRODUCTO, CANTIDAD) VALUES 
 							(1, 1, 2), (1, 2, 1), (2, 3, 1), (3, 3, 3);
 							
-select * from pedido_contiene;
+select * from pedido_contiene;*/
+
+drop trigger tr_vendido on pedido;
+drop function sp_vendido;

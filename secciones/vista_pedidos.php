@@ -48,6 +48,7 @@ $cerrar_conexion = pg_close($conexion);
                 <th class="text-center">País</th>
                 <th class="text-center">Código postal</th>
                 <th class="text-center">Referencia</th>
+                <th class="text-center">Opciones</th>
             </thead>
             <tbody>
                 <?php
@@ -70,12 +71,9 @@ $cerrar_conexion = pg_close($conexion);
                     <td><?php echo $obj->codigo_postal?></td>
                     <td><?php echo $obj->referencia?></td>
                     <td>
-                        <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" >
-                                <button class = "button">Editar</button>
-                            </a> 
-                            <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
-                                <button class = "button">Borrar</button>
-                            </a> 
+                        <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" >Editar</a> -  
+                        <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>Borrar</a> -  
+                        <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>Marcar Vendido</a> 
                     </td>
                 </tr>
                 <?php } } }?>
