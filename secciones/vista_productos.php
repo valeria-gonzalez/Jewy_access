@@ -33,7 +33,14 @@ $cerrar_conexion = pg_close($conexion);
     <title>Tabla de clientes</title>
 </head>
 <body>
-    <h3 class="text-center">Tabla Dinámica Prodcutos</h3>
+    <h3 class="text-center">Tabla Dinámica Productos</h3>
+    <form action="../configuraciones/consulta_productos.php" method="get">
+        <!-- Required para que no se pueda buscar el campo vacio, se puede personalizar -->
+        <!-- Pero no se como :c -->
+        <input type="text" name="search" placeholder="Ingrese el nombre a buscar" title="Debes rellenar el campo Nombre" required>
+        <input type="submit" name="enviar" value="Buscar">
+
+    </form>
     <div class="table-responsive table-hover" id="tablaconsulta">
         <table class="table">
             <thead class="text-muted">
@@ -73,5 +80,6 @@ $cerrar_conexion = pg_close($conexion);
         <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
     </div> <!-- Fin de la tabla -->
     <script src="../js/alerta_eliminar.js"></script>
+    
 </body>
 </html>
