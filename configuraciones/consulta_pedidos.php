@@ -1,7 +1,6 @@
 <?php
 include_once '../configuraciones/conexion_bd.php';
-//lo unico que cambie fue convertir las fechas a char para poner el formato que quisiera, y juntar fecha y hora para
-//ahorrar espacio
+$id_ped=$_GET['search'];
 
 $query_consulta = "SELECT 
                         c1.ID_PEDIDO, to_char(c1.FECHA_PEDIDO, E'DD/MM/YY\nHH:MI') AS FECHA_PEDIDO, 
@@ -13,6 +12,7 @@ $query_consulta = "SELECT
                         pedido c1
                     INNER JOIN  pedido_contiene c2 USING (ID_PEDIDO)
                     INNER JOIN producto c3 USING (ID_PRODUCTO)
+                    WHERE c1.ID_PEDIDO = $id_ped
                     GROUP BY
                         c1.ID_PEDIDO;";
 
@@ -30,14 +30,12 @@ $cerrar_conexion = pg_close($conexion);
     <title>Tabla de clientes</title>
 </head>
 <body>
-    <h3 class="text-center">Tabla Dinámica Pedidos</h3>
-    <form action="../configuraciones/consulta_pedidos.php" method="get">
-        <!-- Verificacion para solo agregar numeros -->
-        <input type="number" ondrop="return false"; onpaste="return false"; onkeypress="return event.charCode>=48 && event.charCode<=57" name="search" placeholder="Ingrese el ID a buscar" required>
-        <input type="submit" name="enviar" value="Buscar">
-
-    </form>
-    <div class="table-responsive table-hover" id="tablaconsulta">
+    <h3 class="text-center">Tabla Pedidos</h3>
+            <tbody>
+                <?php
+                if($consulta){
+                    if(pg_num_rows($consulta) > 0){?>
+                        <div class="table-responsive table-hover" id="tablaconsulta">
         <table class="table">
             <thead class="text-muted">
                 <th class="text-center">Id</th>
@@ -56,10 +54,7 @@ $cerrar_conexion = pg_close($conexion);
                 <th class="text-center">Referencia</th>
                 <th class="text-center">Opciones</th>
             </thead>
-            <tbody>
-                <?php
-                if($consulta){
-                    if(pg_num_rows($consulta) > 0){
+                        <?php
                         while($obj=pg_fetch_object($consulta)){?>
                 <tr>
                     <td><?php echo $obj->id_pedido?></td>
@@ -76,17 +71,17 @@ $cerrar_conexion = pg_close($conexion);
                     <td><?php echo $obj->pais?></td>
                     <td><?php echo $obj->codigo_postal?></td>
                     <td><?php echo $obj->referencia?></td>
-                    <td>
-                        <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" >Editar</a> -  
-                        <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>Borrar</a> -  
-                        <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>Marcar Vendido</a> 
-                    </td>
                 </tr>
-                <?php } } }?>
+                <?php } }
+                    else{  
+                            echo "Id no existente.";
+                        }
+            }?>
+            <br>
             </tbody>
         </table>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_pedidos.php'">Registrar</button>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/vista_pedidos.php'">Atras</button>
+        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">Inicio</button>
     </div>
     <script src="../js/alerta_eliminar.js"></script>
 </body>
