@@ -52,8 +52,8 @@ $consulta=pg_query($conexion,$query_consulta);
                 <?php } } }?>
             </tbody>
         </table>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_ventas.php'">Registrar</button>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
+        <button type="button" onclick="location.href='registrar_ventas.php'">Registrar</button>
+        <button type="button" onclick="location.href='../index.php'">inicio</button>
     </div>
 </body>
 </html>

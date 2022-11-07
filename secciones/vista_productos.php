@@ -76,8 +76,8 @@ $cerrar_conexion = pg_close($conexion);
                 <?php } } }?>
             </tbody>
         </table>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_productos.php'">Registrar</button>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
+        <button type="button" onclick="location.href='registrar_productos.php'">Registrar</button>
+        <button type="button" onclick="location.href='../index.php'">inicio</button>
     </div> <!-- Fin de la tabla -->
     <script src="../js/alerta_eliminar.js"></script>
     

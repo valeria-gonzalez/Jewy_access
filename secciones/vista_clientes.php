@@ -76,8 +76,8 @@ $consulta=pg_query($conexion,$query_consulta);
                             (siempre todo en minúscula, por que por alguna extraña razón
                             no agarra el mayúscula como esta en la base de datos)-->
         </table>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/registrar_clientes.php'">Registrar</button>
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/index.php'">inicio</button>
+        <button type="button" onclick="location.href='registrar_clientes.php'">Registrar</button>
+        <button type="button" onclick="location.href='../index.php'">inicio</button>
     </div>
     <script src="../js/alerta_eliminar.js"></script>
 </body>
