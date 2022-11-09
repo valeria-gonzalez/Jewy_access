@@ -35,11 +35,11 @@ $cerrar_conexion = pg_close($conexion);
         <title>Tabla de clientes</title>
     </head>
     <body>
-    <div class = "wrapper" id = "vista-cliente">
+    <div class = "wrapper" id = "vista-productos">
                 <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."header-nav.html"); ?> <!--codigo php usado para incluir el header sin necesidad del codigo-->
                 
                 <div class = "main_container" >
-                    <div class="item" id = "tabla-cliente">
+                    <div class="item" id = "tabla-productos">
 
                         <h3 class="text-center">Tabla Dinámica Productos</h3>
                         <form action="../configuraciones/consulta_productos.php" method="get">

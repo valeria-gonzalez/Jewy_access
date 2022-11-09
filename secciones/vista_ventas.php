@@ -15,11 +15,11 @@ $consulta=pg_query($conexion,$query_consulta);
         <title>Tabla de clientes</title>
     </head>
     <body>
-    <div class = "wrapper" id = "vista-cliente">
+    <div class = "wrapper" id = "vista-ventas">
                 <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."header-nav.html"); ?> <!--codigo php usado para incluir el header sin necesidad del codigo-->
                 
                 <div class = "main_container" >
-                    <div class="item" id = "tabla-cliente">
+                    <div class="item" id = "tabla-ventas">
 
                         <h3 class="text-center">Tabla Dinámica Ventas</h3>
                         <div class="table-responsive table-hover" id="tablaconsulta">
@@ -60,8 +60,6 @@ $consulta=pg_query($conexion,$query_consulta);
                                     <?php } } }?>
                                 </tbody>
                             </table>
-                            <button type="button" onclick="location.href='registrar_ventas.php'">Registrar</button>
-                            <button type="button" onclick="location.href='../index.php'">inicio</button>
                         </div>
                     </div> <!-- Fin de item -->
                 </div> <!-- Fin de main_container -->

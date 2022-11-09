@@ -24,7 +24,7 @@ $consulta=pg_query($conexion,$query_consulta);
         <title>Tabla de clientes</title>
     </head>
     <body>
-        <div class = "wrapper" id = "vista-cliente">
+        <div class = "wrapper" id = "vista-clientes">
             <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."header-nav.html"); ?> <!--codigo php usado para incluir el header sin necesidad del codigo-->
             
             <div class = "main_container" >
