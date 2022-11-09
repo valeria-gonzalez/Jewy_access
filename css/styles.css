@@ -36,13 +36,13 @@ img {
 }
 
 .wrapper{ /* wrapper is a class selector that selects all elements with the class wrapper (div wrapper)*/
-    margin: 0; /*all four margins on the outside of the element will have 10px of space from other elements*/
+    margin-right: 0; /*all four margins on the outside of the element will have 10px of space from other elements*/
 }
 
 /*------------NAVEGADOR SUPERIOR---------------*/
 
 .wrapper .top_navbar{ /* selecting the div inside div wrapper, es toda la parte del navegador de arriba*/
-    width: calc(100% + 20px); /* 100% of the width of the parent element (div wrapper) plus 20px * NO SE SI ESTO SEA LEGAL*/
+    width: calc(100%); /* 100% of the width of the parent element (div wrapper) plus 20px * NO SE SI ESTO SEA LEGAL*/
     height: 60px; /* height of the div */
     display: flex; /*flex is a one-dimensional layout method for laying out items in rows or columns*/
     position: fixed; /* position: fixed; is a positioning method that positions an element relative to the browser window. */
@@ -65,6 +65,7 @@ img {
     height: 3px;
     background: var(--clr-light-sky); /* background color of the div, le da color a las tres lineas de hamburger*/
     margin: 5px 0; /* 5px on top and bottom, 0 on the left and right */
+    border-radius: 5px;
 }
 
 .wrapper .top_navbar .top_menu{ /*contains logo, and icons, but not the hamburger menu div*/
@@ -192,6 +193,7 @@ img {
     padding: 15px; /*padding: 20px; is a CSS property that sets the padding area on all four sides of an element.*/
     font-size: 14px;
     line-height: 22px;
+    border-radius: 10px;
 }
 
 .wrapper.collapse .sidebar{ /*cuando se hace click en el boton de menu, se colapsa el sidebar, importante que el .collapse este junto*/
@@ -233,9 +235,9 @@ img {
 }
 
 #welcome-msg.item{  /*#welcome-msg es el id del div que contiene el mensaje de bienvenida, tanto imagen como texto*/
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
-    width: calc(100% - 500px);
+    width: calc(100% - 420px);
     margin-left: calc(20%); /*50% de la ventana del browser menos 200px*/
 }
 
@@ -243,6 +245,7 @@ img {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .wrapper .main_container .item .highlight{ /*modifica la palabra jewy access a azul*/
