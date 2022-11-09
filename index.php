@@ -1,30 +1,44 @@
-<?php 
-    include_once "../jewy_access/configuraciones/conexion_bd.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Jewy_acces</title>
+    <link rel="stylesheet" href="css/styles.css"> <!--link al archivo css, la ruta cambia de acuerdo al archivo-->
+    <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."metadata.html"); ?> <!--codigo php usado para incluir los metadatos y script que ocupa el header-->
+    <title>Inicio Jewy Access</title>
 </head>
 <body>
-    <!--Botones para ingresar datos en cierta tabla o para visualizarla-->
-    <h2>BASE DE DATOS MENU </h2>
-    <label for="nombre"><b>CLIENTES</b></label><br>
-    <button type="button" onclick="location.href='secciones/vista_clientes.php'">Visualizar Clientes</button>
+    <div class="wrapper">
+        <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."header-nav.html"); ?> <!--codigo php usado para incluir el header sin necesidad del codigo-->
+  
+        <div class = "main_container" >
+            <div class="item" id = "home-msg-cont">
+                <div class = "home-img-cont">
+                    <img src="src/logo.png" alt="home-image" class = "home-img" > <!--imagen de fondo-->
+                </div>
 
-    <br><br><label for="nombre"><b>MATERIALES</b></label><br>
-    <button type="button" onclick="location.href='secciones/vista_material.php'">Visualizar Materiales</button>
+                <div class="item" id = "welcome-msg">
+                    <h1>Bienvenido a <span class = "highlight"> Jewy Access </span></h1>
+                    <p>En esta página podras administrar los datos de tu empresa!</p>
+                </div> <!--end item-->
+            </div> <!--end item -->
 
-    <br><br><label for="nombre"><b>PEDIDOS</b></label><br>
-    <button type="button" onclick="location.href='secciones/vista_pedidos.php'">Visualizar Pedidos</button>
+            <!--si se quieren mas contenedores-->
+            <!--<div class="item">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente adipisci nemo atque eligendi reprehenderit minima blanditiis eum quae aspernatur!
+            </div> end item
 
-    <br><br><label for="nombre"><b>PRODUCTOS</b></label><br>
-    <button type="button" onclick="location.href='secciones/vista_productos.php'">Visualizar Productos</button>
+            <div class="item">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente adipisci nemo atque eligendi reprehenderit minima blanditiis eum quae aspernatur!
+            </div> end item
 
-    <br><br><label for="nombre"><b>VENTAS</b></label><br>
-    <button type="button" onclick="location.href='secciones/vista_ventas.php'">Visualizar Ventas</button>
+            <div class="item">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut sapiente adipisci nemo atque eligendi reprehenderit minima blanditiis eum quae aspernatur!
+            </div> end item-->
+
+        </div> <!--end main_container-->
+    </div> <!--end wrapper-->
+	
 </body>
 </html>

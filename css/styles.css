@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root { /*The :root selector matches the document's root element which is always the HTML element.*/
+    --clr-primary: #004CC1;
+    --clr-light-sky: #92a6e2;
+    
+    --clr-black: #1c1c1c;
+    --clr-black-80: #2f2f2f;
+    --clr-black-60: #282828;
+
+    --clr-gray: #969696;
+
+    --clr-white: #ffffff;
+    --clr-white-80: #f7f3f3;
+    --clr-white-60: #dbdada;
+  }
+
+*{ /* * is a universal selector that selects all elements on the page. */
+    margin: 0; /* margin: 0; is a shorthand property for setting all four margins of an element to 0. margin is the outside of an element*/
+    list-style: none; /* Removes the bullet points from the list */
+    padding: 0; /* padding: 0; is a shorthand property for setting all four paddings of an element to 0. padding is the space between the content and the inside border*/
+    text-decoration: none; /* Removes the underline from the links */
+    box-sizing: border-box; /* The box-sizing:border box property allows us to include the padding and border in an element's total width and height. */
+    font-family: "Poppins", sans-serif; /* the default font will be poppins, but if it's not supported in a browser, it'll default to sans-serif  */
+}
+
+body{ /* body is a selector that selects the body element */
+    background: var(--clr-white-60); /* background is a shorthand property for setting all background properties in one declaration.
+                                        le da color a todo el fondo de la pagina */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: baseline; /* The vertical-align property specifies the vertical alignment of an inline or table-cell box. */
+}
+
+.wrapper{ /* wrapper is a class selector that selects all elements with the class wrapper (div wrapper)*/
+    margin-right: 0; /*all four margins on the outside of the element will have 10px of space from other elements*/
+}
+
+/*------------NAVEGADOR SUPERIOR---------------*/
+
+.wrapper .top_navbar{ /* selecting the div inside div wrapper, es toda la parte del navegador de arriba*/
+    width: calc(100%); /* 100% of the width of the parent element (div wrapper) plus 20px * NO SE SI ESTO SEA LEGAL*/
+    height: 60px; /* height of the div */
+    display: flex; /*flex is a one-dimensional layout method for laying out items in rows or columns*/
+    position: fixed; /* position: fixed; is a positioning method that positions an element relative to the browser window. */
+    top: 0; /* the top of the div will be 0px from the top of the browser window */
+    z-index: 1; /* z-index specifies the stack order of an element. An element with greater stack order is always in front 
+                of an element with a lower stack order. Le pongo 1 pq hasta ahora es el unico elemento con alguna prioridad */
+}
+
+.wrapper .top_navbar .hamburger{ /* selecting the div inside div top_navbar, es el menu de hamburguesa*/
+    width: 70px;
+    height: 100%;
+    background: var(--clr-primary); /* background color of the div, le da color al cuadro container del hamburger */
+    padding: 15px 17px; /* 15px on top and bottom, 17px on the left and right */
+    cursor: pointer; /* cursor: pointer; is a CSS property that changes the mouse cursor to a pointer when it is over an element. */
+    border-top-left-radius: 20px;
+}
+
+.wrapper .top_navbar .hamburger div{ /* selecting the div inside div hamburger, cada clase es una linea del hambuger menu*/
+    width: 30px;
+    height: 3px;
+    background: var(--clr-light-sky); /* background color of the div, le da color a las tres lineas de hamburger*/
+    margin: 5px 0; /* 5px on top and bottom, 0 on the left and right */
+    border-radius: 5px;
+}
+
+.wrapper .top_navbar .top_menu{ /*contains logo, and icons, but not the hamburger menu div*/
+    width: calc(100% - 70px); /* 100% of the width of the parent element (div top_navbar) minus 70px */
+    background: var(--clr-white); /*hace blanca la parte de arriba*/
+    height: 100%;
+    border-top-right-radius: 20px; /* border-top-right-radius: 20px; is a CSS property that rounds the top-right corner of an element. */
+    display: flex;
+    justify-content: space-between; /* justify-content: space-between; distribute flex items evenly The first item is flush with the start, the last is flush with the end */
+    /*todos los iconos del lado derecho pq son parte de una sola lista, y palabra logo de lado izquierdo*/
+    align-items: center; /* align-items: center; Pack items around the center, aligned along the cross axis. */
+    /*si no se alinean al centro, la propiedad de arriba no aplica*/
+    padding: 0 20px; /* 0 on top and bottom, 20px on the left and right, da espoacio a palabra logo e iconos */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1); /* box-shadow: 0 1px 1px rgba(0,0,0,0.05); is a CSS property that adds shadow to boxes, 
+                                                the fourth channel is transperency */
+}
+
+.wrapper .top_navbar .top_menu .logo{ /* selecting the div inside div top_menu, es la palabra Jewy Access */
+    color: var(--clr-primary); /* color of the text */
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px; /* letter-spacing: 3px; is a CSS property that specifies the spacing behavior between text characters. */
+}
+
+.wrapper .top_navbar .top_menu ul { /* selecting the li inside ul inside div top_menu, es la lista que contiene los iconos */
+    display: flex; 
+}
+
+.wrapper .top_navbar .top_menu ul li a{ /* selecting the a inside li inside ul inside div top_menu, es cada icono */
+    display: block; /* display: block; is a CSS property that turns an inline element into a block-level element, 
+                        que no se integre, que tenga un salto de linea, esto hace que se pongan uno al lado de otro*/
+    margin: 0 10px; /* 0 on top and bottom, 10px on the left and right, separacion entre ellos*/
+    width: 35px; /*su ancho y abajo el alto*/
+    height: 35px;
+    line-height: 35px; /* line-height: 35px; is a CSS property that specifies the height of a line. */
+    border: 1px solid var(--clr-white); /*le pone un borde cuadrado alrededor a cada icono (es el fondo que lleva cada icono)*/
+    text-align: center; /*cada icono esta al centro del recuadro que se les dio*/
+    border-radius: 50%; /* border-radius: 50%; is a CSS property that rounds the corners of an element. (convertimos el cuadro en circulo)*/
+    color: var(--clr-primary); /*le damos un color al texto del elemento (a los iconos)*/
+}
+
+.wrapper .top_navbar .top_menu ul li a:hover{ /*a:hover hace referencia a los iconos eb el top_nav bar when you hover over them*/
+    background: var(--clr-primary); /*le da color al fondo del icono cuando se pasa el mouse por encima*/
+    color: var(--clr-white); /*le da color al icono cuando se pasa el mouse por encima*/
+}
+
+/*------------NAVEGADOR LATERAL---------------*/
+
+.wrapper .sidebar{ /* selecting the div inside div wrapper, es la barra lateral izquierda sin incluir lo que sea de top-nav bar*/
+    position: fixed; /*lo posiciona en la parte izquierda de la pagina sobre lo demas pq es relativo a la ventana del browser y no
+                        de la posicion de otro elemento*/
+    top: 60px; /*70px de espacio arriba del elemento, esto pq el top navbar ocupa 60px de alto*/
+    background: var(--clr-white); /*le da color blanco al sidebar*/
+    width: 220px; /*ancho del sidebar*/
+    height: calc(100% - 60px); /*100% de la ventana del browser menos 80px*/
+    padding-top: 40px; /*padding arriba del sidebar*/
+    border-bottom-left-radius: 20px;
+    transition: all 0.3s ease;  /*transition specifies the speed of the transition applied to transition-property "ease"*/
+}
+
+.wrapper .sidebar ul li a{ /*cada link dentro de la lista de posibles vistas*/
+    display: block; /*display: block; is a CSS property that turns an inline element into a block-level element, 
+                        que no se integre al flujo de otro elemento padre, que tenga un salto de linea separando cada link del elemennto anterior*/
+    padding: 20px; /*padding: 20px; is a CSS property that sets the padding area on all four sides of an element. 
+                    esto hace que cada link tenga espacio entre si y el lateral del sidebar contenedor*/
+    position: relative; /*The element is positioned according to the normal flow of the document, 
+                            and then offset relative to itself based on the values of top, right, bottom, and left.
+                            la posicion de cada elemento sera relativo a la posicion que deberia ocupar en el documento*/
+    
+    margin-bottom: 1px; /*margin-bottom: 1px; is a CSS property that sets the bottom margin of an element. 
+                            esto hace que cada link tenga un espacio de 1px entre si*/
+    color: var(--clr-primary); /*le da color al texto de cada link*/
+    white-space: nowrap; /*white-space: nowrap; is a CSS property that prevents text from wrapping to the next line. 
+                            esto hace que el texto se reposicione suavemente cuando colpasa y descolapsa el sidebar!!*/
+}
+
+.wrapper .sidebar ul li a:before{ /*before es un pseudo elemento que se coloca antes del elemento seleccionado*/
+    content: ""; /*content: ""; is a CSS property that specifies the generated content of an element before, 
+                    after, or instead of its content. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--clr-light-sky); /*le da color al fondo del pseudo elemento (aparece una linea al lado de los links)*/
+    display: none; /*display: none; is a CSS property that hides an element,  para que no se vea siempre la linea*/
+}
+
+.wrapper .sidebar ul li a span.icon{ /*span.icon es el icono que esta dentro de cada link*/
+    margin-right: 10px; /*margin-right: 10px; is a CSS property that sets the right margin of an element. 
+                            esto hace que cada icono tenga un espacio de 10px entre si y el texto*/
+    display: inline-block;    
+}
+
+.wrapper .sidebar ul li a span.title{ /*span.title es el texto que esta dentro de cada link*/
+    display: inline-block;
+}
+
+.wrapper .sidebar ul li a:is(:hover, :focus), /*a:hover hace referencia a los links del sidebar cuando se pasa el mouse por encima*/
+.wrapper .sidebar ul li a.active{ /*a.active hace referencia a los links del sidebar cuando estan activos*/ 
+    background: var(--clr-primary); /*le da color al fondo del link cuando se pasa el mouse por encima*/
+    color: var(--clr-white); /*le da color al texto del link cuando se pasa el mouse por encima*/
+}
+
+.wrapper .sidebar ul li a:is(:hover, :focus):before,
+.wrapper .sidebar ul li a.active:before{ /*se junta lo que hace el before y el hover*/
+    display: block; /*hace que se muestre la linea y subrayado juntos*/
+}
+
+/*------------AREA DE CONTENIDO---------------*/
+
+.wrapper .main_container{ 
+    width: calc(100% - 270px); /*100% de la ventana del browser menos 200px*/
+    margin-top: 70px; /*70px de espacio arriba del elemento, esto pq el top navbar ocupa 60px de alto*/
+    margin-left: 240px; /*200px de espacio a la izquierda del elemento, esto pq el sidebar ocupa 220px de ancho*/
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.wrapper .main_container .item{ /*cada item dentro del div main_container, cada recuadro blanco*/
+    background: var(--clr-white); /*le da color blanco al item*/
+    
+    margin-bottom: 20px; /*margin-bottom: 20px; is a CSS property that sets the bottom margin of an element. 
+                            esto hace que cada item tenga un espacio de 20px entre si*/
+    padding: 15px; /*padding: 20px; is a CSS property that sets the padding area on all four sides of an element.*/
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 10px;
+}
+
+.wrapper.collapse .sidebar{ /*cuando se hace click en el boton de menu, se colapsa el sidebar, importante que el .collapse este junto*/
+    width: 70px;
+}
+
+.wrapper.collapse .sidebar ul li a{ /*cuando se colapsa el sidebar, el texto se centra*/
+    text-align: center;
+}
+
+.wrapper.collapse .sidebar ul li a span.icon{ /*cuando se colapsa el sidebar, no hay margen entre texto e icono*/
+    margin: 0;
+}
+
+.wrapper.collapse .sidebar ul li a span.title{ /*cuando se colapsa el sidebar, el texto se oculta*/
+    display: none;
+}
+
+.wrapper.collapse .main_container{ /*cuando se colapsa el sidebar, el ancho del main_container se agranda*/
+    width: calc(100% - 70px); /*100% de la ventana del browser menos 70px*/
+    margin-left: 70px; /*70px de espacio a la izquierda del elemento, esto pq el sidebar ocupa 70px de ancho*/
+}
+
+/*------------REFERENTE A PANTALLA DE INICIO---------------*/
+
+#home-msg-cont.item{  /*#home-msg-cont es el id del div que contiene el mensaje de bienvenida, tanto imagen como texto*/
+    background: var(--clr-white-60);
+}
+
+.wrapper .main_container .item .home-img-cont { /*.home-img-cont es el div que contiene la imagen de bienvenida*/
+    display: flex; /*Set the display property to "flex," which tells the browser that the div is the parent container and the image is a flex item.*/
+    justify-content: center;   /*centramos contenido*/
+}
+
+.wrapper .main_container .item .home-img-cont .home-img{ /*.home-img es la imagen de bienvenida*/
+    opacity: 0.5; /*opacity: 0.5; is a CSS property that sets the opacity level for an element. 
+                    esto hace que la imagen de bienvenida tenga un 50% de opacidad*/
+    margin-bottom: 30px;
+}
+
+#welcome-msg.item{  /*#welcome-msg es el id del div que contiene el mensaje de bienvenida, tanto imagen como texto*/
+    padding: 30px;
+    border-radius: 20px;
+    width: calc(100% - 420px);
+    margin-left: calc(20%); /*50% de la ventana del browser menos 200px*/
+}
+
+#welcome-msg.item h1{ /*h1 es el titulo del mensaje de bienvenida*/
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.wrapper .main_container .item .highlight{ /*modifica la palabra jewy access a azul*/
+    color: var(--clr-primary);
+}
+
+#welcome-msg.item p{ /*p es el parrafo del mensaje de bienvenida*/
+    color: var(--clr-gray);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+
+
+
+

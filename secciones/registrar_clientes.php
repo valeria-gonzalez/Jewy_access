@@ -57,7 +57,7 @@
                 <input type="submit" name = 'registro' value="Registrar">
         </form><br>
         <!-- Botones para regresar a la pagina anterior -->
-        <button type="button" onclick="location.href='http://localhost/Jewy_access/secciones/vista_clientes.php'">Atras</button>
+        <button type="button" onclick="location.href='vista_clientes.php'">Atras</button>
     </section>
     </body>
 </html>

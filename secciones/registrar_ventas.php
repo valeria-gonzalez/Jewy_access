@@ -1,10 +1,12 @@
+<!--ESTE DOC NO DEBERIA EXISTIR, LAS VENTAS SE INSERTAN CON EL TRIGGER-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Exitoso</title>
+    <title>Registrar Venta</title>
 </head>
 <body>
     <header>
