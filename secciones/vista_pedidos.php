@@ -28,6 +28,8 @@ $cerrar_conexion = pg_close($conexion);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
+        <link rel="stylesheet" href="../css/tabla_opc.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."metadata.html"); ?> 
         <title>Tabla de clientes</title>
     </head>
@@ -39,6 +41,7 @@ $cerrar_conexion = pg_close($conexion);
                 <div class="item" id = "tabla-pedidos">
 
                     <h3 class="text-center">Tabla Dinámica Pedidos</h3>
+                    <button type="button" class="boton-personalizado" onclick="location.href='registrar_pedidos.php'">Registrar</button>
                     <form action="../configuraciones/consulta_pedidos.php" method="get">
                         <!-- Verificacion para solo agregar numeros -->
                         <input type="number" ondrop="return false"; onpaste="return false"; onkeypress="return event.charCode>=48 && event.charCode<=57" name="search" placeholder="Ingrese el ID a buscar" required>
@@ -46,7 +49,7 @@ $cerrar_conexion = pg_close($conexion);
 
                     </form>
                     <div class="table-responsive table-hover" id="tablaconsulta">
-                        <table class="table">
+                        <table class="styled-table">
                             <thead class="text-muted">
                                 <th class="text-center">Id</th>
                                 <th class="text-center">Id Cliente</th>
@@ -85,15 +88,25 @@ $cerrar_conexion = pg_close($conexion);
                                     <td><?php echo $obj->codigo_postal?></td>
                                     <td><?php echo $obj->referencia?></td>
                                     <td>
-                                        <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" >Editar</a> -  
-                                        <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>Borrar</a> -  
-                                        <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>Marcar Vendido</a> 
+                                        <div class="desplegable">
+                                            <button class="boton-des"><i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                                            <div class="opciones">
+                                                <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
+                                                    <i class="fa-solid fa-pen" id="iconos"></i> &nbsp;&nbsp;&nbsp;Editar
+                                                </a>  
+                                                <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
+                                                    <i class="fa-solid fa-trash" id="iconos"></i>&nbsp;&nbsp;&nbsp;Borrar
+                                                </a>  
+                                                <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>
+                                                    <i class="fa-solid fa-check" id="iconos"></i>&nbsp;&nbsp;Vendido
+                                                </a> 
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                                 <?php } } }?>
                             </tbody>
                         </table>
-                        <button type="button" onclick="location.href='registrar_pedidos.php'">Registrar</button>
                     </div>
                     <script src="../js/alerta_eliminar.js"></script>
                 </div> <!-- Fin de item -->
