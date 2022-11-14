@@ -44,8 +44,8 @@ $cerrar_conexion = pg_close($conexion);
                     <button type="button" class="boton-personalizado" onclick="location.href='registrar_pedidos.php'">Registrar</button>
                     <form action="../configuraciones/consulta_pedidos.php" method="get">
                         <!-- Verificacion para solo agregar numeros -->
-                        <input type="number" ondrop="return false"; onpaste="return false"; onkeypress="return event.charCode>=48 && event.charCode<=57" name="search" placeholder="Ingrese el ID a buscar" required>
-                        <input type="submit" name="enviar" value="Buscar">
+                        <input class="box" type="number" ondrop="return false"; onpaste="return false"; onkeypress="return event.charCode>=48 && event.charCode<=57" name="search" placeholder="Ingrese el ID a buscar" required>
+                        <input class="boton-busq" type="submit" name="enviar" value="Buscar">
 
                     </form>
                     <div class="table-responsive table-hover" id="tablaconsulta">
@@ -91,15 +91,20 @@ $cerrar_conexion = pg_close($conexion);
                                         <div class="desplegable">
                                             <button class="boton-des"><i class="fa-sharp fa-solid fa-caret-down"></i></button>
                                             <div class="opciones">
-                                                <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
-                                                    <i class="fa-solid fa-pen" id="iconos"></i> &nbsp;&nbsp;&nbsp;Editar
-                                                </a>  
-                                                <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
-                                                    <i class="fa-solid fa-trash" id="iconos"></i>&nbsp;&nbsp;&nbsp;Borrar
-                                                </a>  
-                                                <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>
-                                                    <i class="fa-solid fa-check" id="iconos"></i>&nbsp;&nbsp;Vendido
-                                                </a> 
+                                                <figure>
+                                                    <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
+                                                        <i class="fa-solid fa-pen" id="iconos"></i>
+                                                    </a>
+                                                    <figcaption>Editar</figcaption>  
+                                                    <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
+                                                        <i class="fa-solid fa-trash" id="iconos"></i>
+                                                    </a>
+                                                    <figcaption>Eliminar</figcaption>  
+                                                    <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>
+                                                        <i class="fa-solid fa-check" id="iconos"></i>
+                                                    </a>
+                                                    <figcaption>Vendido</figcaption> 
+                                                </figure>
                                             </div>
                                         </div>
                                     </td>

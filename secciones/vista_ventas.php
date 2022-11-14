@@ -11,6 +11,8 @@ $consulta=pg_query($conexion,$query_consulta);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
+        <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
+        <link rel="stylesheet" href="../css/tablas.css">
         <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."metadata.html"); ?> 
         <title>Tabla de clientes</title>
     </head>
@@ -22,8 +24,9 @@ $consulta=pg_query($conexion,$query_consulta);
                     <div class="item" id = "tabla-ventas">
 
                         <h3 class="text-center">Tabla Dinámica Ventas</h3>
+                        <button type="button" class="boton-personalizado" onclick="location.href='vista_pedidos.php'">Pedidos</button>
                         <div class="table-responsive table-hover" id="tablaconsulta">
-                            <table class="table">
+                            <table class="styled-table">
                                 <thead class="text-muted">
                                     <th class="text-center">Fecha del pedido</th>
                                     <th class="text-center">Fecha de entrega</th>

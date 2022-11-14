@@ -28,6 +28,8 @@ $cerrar_conexion = pg_close($conexion);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
+        <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
+        <link rel="stylesheet" href="../css/tablas.css">
         <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."metadata.html"); ?> 
         <title>Pedido consultado</title>
     </head>
@@ -39,12 +41,13 @@ $cerrar_conexion = pg_close($conexion);
             <div class = "main_container" >
                 <div class="item" id = "consulta-ped">
                     <h3 class="text-center">Coincidencias</h3>
+                    <button type="button" class="boton-personalizado" onclick="location.href='../secciones/vista_pedidos.php'">Atras</button>
                             <tbody>
                                 <?php
                                 if($consulta){
                                     if(pg_num_rows($consulta) > 0){?>
                                         <div class="table-responsive table-hover" id="tablaconsulta">
-                        <table class="table">
+                        <table class="styled-table">
                             <thead class="text-muted">
                                 <th class="text-center">Id</th>
                                 <th class="text-center">Id Cliente</th>
@@ -60,7 +63,6 @@ $cerrar_conexion = pg_close($conexion);
                                 <th class="text-center">País</th>
                                 <th class="text-center">Código postal</th>
                                 <th class="text-center">Referencia</th>
-                                <th class="text-center">Opciones</th>
                             </thead>
                                         <?php
                                         while($obj=pg_fetch_object($consulta)){?>
@@ -81,14 +83,16 @@ $cerrar_conexion = pg_close($conexion);
                                     <td><?php echo $obj->referencia?></td>
                                 </tr>
                                 <?php } }
-                                    else{  
-                                            echo "Id no existente.";
-                                        }
+                                    else{
+                                        echo "<script>
+                                                    alert('No hay coincidencias');
+                                                    history.back();
+                                                </script>";
+                                    }
                             }?>
                             <br>
                             </tbody>
                         </table>
-                        <button type="button" onclick="location.href='../secciones/vista_pedidos.php'">Atras</button>
                     </div>
                     <script src="../js/alerta_eliminar.js"></script>
                 </div> <!-- Fin de item -->
