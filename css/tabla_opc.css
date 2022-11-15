@@ -1,18 +1,19 @@
-#tabla {
-    position: absolute;
-    z-index: 1;
+.table-wrapper {
+    overflow-x: scroll;
+    width: 100%;
+    
 }
 
 .styled-table {
     width: 100%;
-    margin: 10px 0 0 0;
-    padding: 0;
+    padding: 0;    
+    margin: 10px;
     border-collapse: collapse;
     border-radius: 1em;
     overflow: hidden;
-    min-width: 400px;
+    min-width: max-content;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    position: flex;
+    
 }
 
 .styled-table thead tr {
@@ -42,7 +43,6 @@
 
 .boton-personalizado {
     float: right;
-    margin: 5px 0 15px 0;
     text-decoration: none;
     padding: 5px 15px 5px 15px;
     font-weight: 600;
@@ -145,6 +145,6 @@ input.boton-busq {
 }
 
 .desplegable {
-    position: absolute;
+    position: relative;
 }
 

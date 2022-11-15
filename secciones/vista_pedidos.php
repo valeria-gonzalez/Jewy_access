@@ -39,7 +39,6 @@ $cerrar_conexion = pg_close($conexion);
             
             <div class = "main_container" >
                 <div class="item" id = "tabla">
-
                     <h3 class="text-center">Tabla Dinámica Pedidos</h3>
                     <button type="button" class="boton-personalizado" onclick="location.href='registrar_pedidos.php'">Registrar</button>
                     <form action="../configuraciones/consulta_pedidos.php" method="get">
@@ -48,73 +47,74 @@ $cerrar_conexion = pg_close($conexion);
                         <input class="boton-busq" type="submit" name="enviar" value="Buscar">
 
                     </form>
-                    <div class="table-responsive table-hover" id="tablaconsulta">
-                        <table class="styled-table">
-                        <div id="scroll-bar">
-                                <thead class="text-muted">                                
-                                    <th class="text-center">Id</th>
-                                    <th class="text-center">Id Cliente</th>
-                                    <th class="text-center">Fecha del pedido</th>
-                                    <th class="text-center">Fecha de entrega</th>
-                                    <th class="text-center">Productos</th>
-                                    <th class="text-center">Precio</th>
-                                    <th class="text-center">Punto de entrega</th>
-                                    <th class="text-center">Calle</th>
-                                    <th class="text-center">No. de casa</th>
-                                    <th class="text-center">Colonia</th>
-                                    <th class="text-center">Estado</th>
-                                    <th class="text-center">País</th>
-                                    <th class="text-center">Código postal</th>
-                                    <th class="text-center">Referencia</th>
-                                    <th class="text-center">Opciones</th>                                
-                                </thead>
-                        </div>
-                            <tbody>
-                                <?php
-                                if($consulta){
-                                    if(pg_num_rows($consulta) > 0){
-                                        while($obj=pg_fetch_object($consulta)){?>
-                                <tr>
-                                    <td><?php echo $obj->id_pedido?></td>
-                                    <td><?php echo $obj->id_cliente?></td>
-                                    <td><?php echo $obj->fecha_pedido?></td>
-                                    <td><?php echo $obj->fecha_entrega?></td>
-                                    <td><?php echo $obj->productos?></td>
-                                    <td><?php echo $obj->precio?></td>
-                                    <td><?php echo $obj->punto_entrega?></td>
-                                    <td><?php echo $obj->calle?></td>
-                                    <td><?php echo $obj->no_casa?></td>
-                                    <td><?php echo $obj->colonia?></td>
-                                    <td><?php echo $obj->estado?></td>
-                                    <td><?php echo $obj->pais?></td>
-                                    <td><?php echo $obj->codigo_postal?></td>
-                                    <td><?php echo $obj->referencia?></td>
-                                    <td>
-                                        <div class="desplegable">
-                                            <button class="boton-des"><i class="fa-sharp fa-solid fa-caret-down"></i></button>
-                                            <div class="opciones">
-                                                <figure>
-                                                    <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
-                                                        <i class="fa-solid fa-pen" id="iconos"></i>
-                                                    </a>
-                                                    <figcaption>Editar</figcaption>  
-                                                    <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
-                                                        <i class="fa-solid fa-trash" id="borrar"></i>
-                                                    </a>
-                                                    <figcaption>Eliminar</figcaption>  
-                                                    <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>
-                                                        <i class="fa-solid fa-check" id="iconos"></i>
-                                                    </a>
-                                                    <figcaption>Vendido</figcaption> 
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <?php } } }?>
-                            </tbody>
-                        </table>
-                    </div>
+                        <div class="outer-wrapper">
+                            <div class="table-wrapper">
+                                <table class="styled-table">                       
+                                    <thead class="text-muted">                                
+                                        <th class="text-center">Id</th>
+                                        <th class="text-center">Id Cliente</th>
+                                        <th class="text-center">Fecha del pedido</th>
+                                        <th class="text-center">Fecha de entrega</th>
+                                        <th class="text-center">Productos</th>
+                                        <th class="text-center">Precio</th>
+                                        <th class="text-center">Punto de entrega</th>
+                                        <th class="text-center">Calle</th>
+                                        <th class="text-center">No. de casa</th>
+                                        <th class="text-center">Colonia</th>
+                                        <th class="text-center">Estado</th>
+                                        <th class="text-center">País</th>
+                                        <th class="text-center">Código postal</th>
+                                        <th class="text-center">Referencia</th>
+                                        <th class="text-center">Opciones</th>                                
+                                    </thead>
+        
+                                    <tbody>
+                                        <?php
+                                        if($consulta){
+                                            if(pg_num_rows($consulta) > 0){
+                                                while($obj=pg_fetch_object($consulta)){?>
+                                        <tr>
+                                            <td><?php echo $obj->id_pedido?></td>
+                                            <td><?php echo $obj->id_cliente?></td>
+                                            <td><?php echo $obj->fecha_pedido?></td>
+                                            <td><?php echo $obj->fecha_entrega?></td>
+                                            <td><?php echo $obj->productos?></td>
+                                            <td><?php echo $obj->precio?></td>
+                                            <td><?php echo $obj->punto_entrega?></td>
+                                            <td><?php echo $obj->calle?></td>
+                                            <td><?php echo $obj->no_casa?></td>
+                                            <td><?php echo $obj->colonia?></td>
+                                            <td><?php echo $obj->estado?></td>
+                                            <td><?php echo $obj->pais?></td>
+                                            <td><?php echo $obj->codigo_postal?></td>
+                                            <td><?php echo $obj->referencia?></td>
+                                            <td>
+                                                <div class="desplegable">
+                                                    <button class="boton-des"><i class="fa-sharp fa-solid fa-caret-down"></i></button>
+                                                    <div class="opciones">
+                                                        <figure>
+                                                            <a id = "Edit" href  = "../configuraciones/mod_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>">
+                                                                <i class="fa-solid fa-pen" id="iconos"></i>
+                                                            </a>
+                                                            <figcaption>Editar</figcaption>  
+                                                            <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
+                                                                <i class="fa-solid fa-trash" id="borrar"></i>
+                                                            </a>
+                                                            <figcaption>Eliminar</figcaption>  
+                                                            <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>
+                                                                <i class="fa-solid fa-check" id="iconos"></i>
+                                                            </a>
+                                                            <figcaption>Vendido</figcaption> 
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php } } }?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>                    
                     <script src="../js/alerta_eliminar.js"></script>
                 </div> <!-- Fin de item -->
             </div> <!-- Fin de main_container -->

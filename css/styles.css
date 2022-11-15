@@ -47,7 +47,7 @@ img {
     display: flex; /*flex is a one-dimensional layout method for laying out items in rows or columns*/
     position: fixed; /* position: fixed; is a positioning method that positions an element relative to the browser window. */
     top: 0; /* the top of the div will be 0px from the top of the browser window */
-    z-index: 3; /* z-index specifies the stack order of an element. An element with greater stack order is always in front 
+    z-index: 1; /* z-index specifies the stack order of an element. An element with greater stack order is always in front 
                 of an element with a lower stack order. Le pongo 1 pq hasta ahora es el unico elemento con alguna prioridad */
 }
 
@@ -124,7 +124,6 @@ img {
     padding-top: 40px; /*padding arriba del sidebar*/
     border-bottom-left-radius: 20px;
     transition: all 0.3s ease;  /*transition specifies the speed of the transition applied to transition-property "ease"*/
-    z-index: 2;
 }
 
 .wrapper .sidebar ul li a{ /*cada link dentro de la lista de posibles vistas*/
@@ -188,7 +187,6 @@ img {
 
 .wrapper .main_container .item{ /*cada item dentro del div main_container, cada recuadro blanco*/
     background: var(--clr-white); /*le da color blanco al item*/
-    
     margin-bottom: 20px; /*margin-bottom: 20px; is a CSS property that sets the bottom margin of an element. 
                             esto hace que cada item tenga un espacio de 20px entre si*/
     padding: 15px; /*padding: 20px; is a CSS property that sets the padding area on all four sides of an element.*/
