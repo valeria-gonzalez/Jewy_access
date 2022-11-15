@@ -45,7 +45,7 @@ $consulta=pg_query($conexion,$query_consulta);
                                     <td><?php echo $obj->existencia?></td>
                                     <td>
                                     <a class="texto_iconos" href="eliminar_material.php?id_materiales=<?php echo $obj->id_material;?>" onclick='return confirmacion()'>
-                                    <i class="fa-solid fa-trash" id="iconos"></i>&nbsp;&nbsp;&nbsp;Borrar
+                                    <i class="fa-solid fa-trash" id="borrar"></i>&nbsp;&nbsp;&nbsp;Borrar
                                         </a>
                                     </td>                    
                                 </tr>

@@ -1,3 +1,8 @@
+#tabla {
+    position: absolute;
+    z-index: 1;
+}
+
 .styled-table {
     width: 100%;
     margin: 10px 0 0 0;
@@ -7,7 +12,7 @@
     overflow: hidden;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    table-layout: fixed;
+    position: flex;
 }
 
 .styled-table thead tr {
@@ -43,15 +48,15 @@
     font-weight: 600;
     font-size: 0.9em;
     border-radius: 6px;
-    color: #000000;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #004CC1;
     border: 2px solid #004CC1;
     transition: background-color .5s;
 }
 
 .boton-personalizado:hover{
-    color: #ffffff;
-    background-color: #004CC1;
+    color: #000000;
+    background-color: #ffffff;
     cursor: pointer;
 }
 
@@ -60,15 +65,26 @@
     color: black;
 }
 
+#borrar {
+    transition: .2s;
+    color: red;
+}
+
+#borrar:hover {
+    transition: .2s;
+    transform: translateY(-3px) scale(1.05);
+    color:grey;
+}
+
 #iconos {
     transition: .2s;
-    color:grey;
+    color: #004CC1;
 }
 
 #iconos:hover {
     transition: .2s;
     transform: translateY(-3px) scale(1.05);
-    color: #004CC1;
+    color:grey;
 }
 
 h3.text-center {
@@ -91,7 +107,7 @@ input.box {
 }
 
 input.boton-busq {
-    position: relative;
+    position:static;
     right: 50px;
     padding: 12px 20px;
     color: rgb(255, 255, 255);
@@ -129,6 +145,6 @@ input.boton-busq {
 }
 
 .desplegable {
-    margin: 0 0 0 25px;
     position: absolute;
 }
+

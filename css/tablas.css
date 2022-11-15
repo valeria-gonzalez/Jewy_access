@@ -44,15 +44,15 @@
     font-weight: 600;
     font-size: 0.9em;
     border-radius: 6px;
-    color: #000000;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #004CC1;
     border: 2px solid #004CC1;
     transition: background-color .5s;
 }
 
 .boton-personalizado:hover{
-    color: #ffffff;
-    background-color: #004CC1;
+    color: #000000;
+    background-color: #ffffff;
     cursor: pointer;
 }
 
@@ -63,13 +63,24 @@
 
 #iconos {
     transition: .2s;
-    color:rgba(128, 128, 128, 0.57);
+    color: #004CC1;
+}
+
+#borrar {
+    transition: .2s;
+    color: red;
+}
+
+#borrar:hover {
+    transition: .2s;
+    transform: translateY(-3px) scale(1.05);
+    color:grey;
 }
 
 #iconos:hover {
     transition: .2s;
     transform: translateY(-3px) scale(1.05);
-    color: #004CC1;
+    color:rgba(128, 128, 128, 0.57);
 }
 
 h3.text-center {

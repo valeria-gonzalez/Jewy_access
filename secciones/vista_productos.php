@@ -79,7 +79,7 @@ $cerrar_conexion = pg_close($conexion);
                                         <i class="fa-solid fa-pen" id="iconos"></i> &nbsp;&nbsp;&nbsp;Editar
                                         </a> &nbsp;&nbsp;&nbsp;&nbsp;
                                         <a class="texto_iconos" href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>" onclick='return confirmacion()'>
-                                        <i class="fa-solid fa-trash" id="iconos"></i>&nbsp;&nbsp;&nbsp;Borrar
+                                        <i class="fa-solid fa-trash" id="borrar"></i>&nbsp;&nbsp;&nbsp;Borrar
                                         </a>
                                         </td>
                                     </tr>

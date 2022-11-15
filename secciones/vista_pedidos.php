@@ -38,7 +38,7 @@ $cerrar_conexion = pg_close($conexion);
             <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."header-nav.html"); ?> <!--codigo php usado para incluir el header sin necesidad del codigo-->
             
             <div class = "main_container" >
-                <div class="item" id = "tabla-pedidos">
+                <div class="item" id = "tabla">
 
                     <h3 class="text-center">Tabla Dinámica Pedidos</h3>
                     <button type="button" class="boton-personalizado" onclick="location.href='registrar_pedidos.php'">Registrar</button>
@@ -50,23 +50,25 @@ $cerrar_conexion = pg_close($conexion);
                     </form>
                     <div class="table-responsive table-hover" id="tablaconsulta">
                         <table class="styled-table">
-                            <thead class="text-muted">
-                                <th class="text-center">Id</th>
-                                <th class="text-center">Id Cliente</th>
-                                <th class="text-center">Fecha del pedido</th>
-                                <th class="text-center">Fecha de entrega</th>
-                                <th class="text-center">Productos</th>
-                                <th class="text-center">Precio</th>
-                                <th class="text-center">Punto de entrega</th>
-                                <th class="text-center">Calle</th>
-                                <th class="text-center">No. de casa</th>
-                                <th class="text-center">Colonia</th>
-                                <th class="text-center">Estado</th>
-                                <th class="text-center">País</th>
-                                <th class="text-center">Código postal</th>
-                                <th class="text-center">Referencia</th>
-                                <th class="text-center">Opciones</th>
-                            </thead>
+                        <div id="scroll-bar">
+                                <thead class="text-muted">                                
+                                    <th class="text-center">Id</th>
+                                    <th class="text-center">Id Cliente</th>
+                                    <th class="text-center">Fecha del pedido</th>
+                                    <th class="text-center">Fecha de entrega</th>
+                                    <th class="text-center">Productos</th>
+                                    <th class="text-center">Precio</th>
+                                    <th class="text-center">Punto de entrega</th>
+                                    <th class="text-center">Calle</th>
+                                    <th class="text-center">No. de casa</th>
+                                    <th class="text-center">Colonia</th>
+                                    <th class="text-center">Estado</th>
+                                    <th class="text-center">País</th>
+                                    <th class="text-center">Código postal</th>
+                                    <th class="text-center">Referencia</th>
+                                    <th class="text-center">Opciones</th>                                
+                                </thead>
+                        </div>
                             <tbody>
                                 <?php
                                 if($consulta){
@@ -97,7 +99,7 @@ $cerrar_conexion = pg_close($conexion);
                                                     </a>
                                                     <figcaption>Editar</figcaption>  
                                                     <a href="eliminar_pedido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmacion()'>
-                                                        <i class="fa-solid fa-trash" id="iconos"></i>
+                                                        <i class="fa-solid fa-trash" id="borrar"></i>
                                                     </a>
                                                     <figcaption>Eliminar</figcaption>  
                                                     <a href="pedido_vendido.php?id_pedidos=<?php echo $obj->id_pedido;?>" onclick='return confirmar_venta()'>

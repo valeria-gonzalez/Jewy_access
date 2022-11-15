@@ -70,7 +70,7 @@ $consulta=pg_query($conexion,$query_consulta);
                                         <!-- Botones que podrían tener utilidad 
                                             UPDATE: dando utilidad al boton de "borrar" para eliminar clientes, llamando a "eliminar_clientes.php" y guardando el id del cliente en variable "id_clientes" con ayuda de código php y el obj que apunta a "id_cliente" en la base de datos-->
                                             <a class="texto_iconos" href="eliminar_cliente.php?id_clientes=<?php echo$obj->id_cliente;?>" onclick='return confirmacion()'>
-                                            <i class="fa-solid fa-trash" id="iconos"></i>&nbsp;&nbsp;&nbsp;Borrar
+                                            <i class="fa-solid fa-trash" id="borrar"></i>&nbsp;&nbsp;&nbsp;Borrar
                                             </a> 
                                         </td>
                                     
