@@ -187,7 +187,6 @@ img {
 
 .wrapper .main_container .item{ /*cada item dentro del div main_container, cada recuadro blanco*/
     background: var(--clr-white); /*le da color blanco al item*/
-    
     margin-bottom: 20px; /*margin-bottom: 20px; is a CSS property that sets the bottom margin of an element. 
                             esto hace que cada item tenga un espacio de 20px entre si*/
     padding: 15px; /*padding: 20px; is a CSS property that sets the padding area on all four sides of an element.*/
