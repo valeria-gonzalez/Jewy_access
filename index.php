@@ -19,8 +19,10 @@
                 </div>
 
                 <div class="item" id = "welcome-msg">
-                    <h1>Bienvenido a <span class = "highlight"> Jewy Access </span></h1>
-                    <p>En esta página podras administrar los datos de tu empresa!</p>
+                    <div class = "welcome-wrap">
+                        <h1>Bienvenido a <span class = "highlight"> Jewy Access </span></h1>
+                        <p>En esta página podras administrar los datos de tu empresa!</p>
+                    </div> <!--end welcome-wrap-->
                 </div> <!--end item-->
             </div> <!--end item -->
 
