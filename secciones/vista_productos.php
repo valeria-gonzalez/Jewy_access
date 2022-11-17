@@ -31,6 +31,8 @@ $cerrar_conexion = pg_close($conexion);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
+        <link rel="stylesheet" href="../css/tablas.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."metadata.html"); ?> 
         <title>Tabla de clientes</title>
     </head>
@@ -42,15 +44,15 @@ $cerrar_conexion = pg_close($conexion);
                     <div class="item" id = "tabla-productos">
 
                         <h3 class="text-center">Tabla Dinámica Productos</h3>
+                        <button type="button" class="boton-personalizado" onclick="location.href='registrar_productos.php'">Registrar</button>
                         <form action="../configuraciones/consulta_productos.php" method="get">
                             <!-- Required para que no se pueda buscar el campo vacio, se puede personalizar -->
                             <!-- Pero no se como :c -->
-                            <input type="text" name="search" placeholder="Ingrese el nombre a buscar" title="Debes rellenar el campo Nombre" required>
-                            <input type="submit" name="enviar" value="Buscar">
-
+                                <input class="box" type="text" name="search" placeholder="Ingrese el nombre a buscar" required>
+                                <input class="boton-busq" type="submit" name="enviar" value="Buscar">            
                         </form>
                         <div class="table-responsive table-hover" id="tablaconsulta">
-                            <table class="table">
+                            <table class="styled-table">
                                 <thead class="text-muted">
                                     <th class="text-center">Id</th> <!--Le agregue la columna ID para q el cliente sepa como relacionar al ingresar otros datos-->
                                     <th class="text-center">Nombre</th>
@@ -73,18 +75,17 @@ $cerrar_conexion = pg_close($conexion);
                                         <td><?php echo $obj->existencia?></td>
                                         <td><?php echo $obj->materiales?></td> <!--Agregue el string resultante de materiales con string_agg-->
                                         <td>
-                                        <a id = "Edit" href  = "../configuraciones/mod_productos.php?id_productos=<?php echo $obj->id_producto;?>">
-                                                <button class = "button">Editar</button>
-                                            </a>
-                                            <a href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>" onclick='return confirmacion()'>
-                                                <button class = "button">Borrar</button>
-                                            </a>
+                                        <a class="texto_iconos" id = "Edit" href  = "../configuraciones/mod_productos.php?id_productos=<?php echo $obj->id_producto;?>">
+                                        <i class="fa-solid fa-pen" id="iconos"></i> &nbsp;&nbsp;&nbsp;Editar
+                                        </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="texto_iconos" href="eliminar_producto.php?id_productos=<?php echo $obj->id_producto;?>" onclick='return confirmacion()'>
+                                        <i class="fa-solid fa-trash" id="borrar"></i>&nbsp;&nbsp;&nbsp;Borrar
+                                        </a>
                                         </td>
                                     </tr>
                                     <?php } } }?>
                                 </tbody>
                             </table>
-                            <button type="button" onclick="location.href='registrar_productos.php'">Registrar</button>
                         </div> <!-- Fin de la tabla -->
                         <script src="../js/alerta_eliminar.js"></script>
                     </div> <!-- Fin de item -->
