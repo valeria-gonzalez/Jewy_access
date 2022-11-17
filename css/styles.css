@@ -187,6 +187,7 @@ img {
 
 .wrapper .main_container .item{ /*cada item dentro del div main_container, cada recuadro blanco*/
     background: var(--clr-white); /*le da color blanco al item*/
+    
     margin-bottom: 20px; /*margin-bottom: 20px; is a CSS property that sets the bottom margin of an element. 
                             esto hace que cada item tenga un espacio de 20px entre si*/
     padding: 15px; /*padding: 20px; is a CSS property that sets the padding area on all four sides of an element.*/
@@ -230,14 +231,14 @@ img {
 .wrapper .main_container .item .home-img-cont .home-img{ /*.home-img es la imagen de bienvenida*/
     opacity: 0.5; /*opacity: 0.5; is a CSS property that sets the opacity level for an element. 
                     esto hace que la imagen de bienvenida tenga un 50% de opacidad*/
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #welcome-msg.item{  /*#welcome-msg es el id del div que contiene el mensaje de bienvenida, tanto imagen como texto*/
-    padding: 30px;
+    padding: 25px;
     border-radius: 20px;
-    width: calc(100% - 420px);
-    margin-left: calc(20%); /*50% de la ventana del browser menos 200px*/
+    width: calc(70%);
+    margin-left: calc(15%); /*50% de la ventana del browser menos 200px*/
 }
 
 #welcome-msg.item h1{ /*h1 es el titulo del mensaje de bienvenida*/
@@ -257,7 +258,182 @@ img {
     font-weight: 500;
 }
 
+.wrapper .main_container .item .welcome-wrap{
+    display: flex; /*Set the display property to "flex," which tells the browser that the div is the parent container and the image is a flex item.*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+/*------------REFERENTE A FORMULARIOS---------------*/
+
+#form-mat.item{
+    height: 470px;
+}
+
+#form-prod.item{
+    height: 670px;
+}
+
+#form-ped.item{
+    height: 1160px;
+}
+
+#form-clien.item{
+    height: 470px;
+}
+
+#mod-prod.item{
+    height: 810px;
+}
+
+#mod-ped.item{
+    height: 1440px;
+}
+
+.wrapper .main_container .item .form{ /*.form es el div que contiene el formulario*/
+    position: relative;
+    width: 55%; /*por tener 10px de left*/
+    height: 100%;
+    top: 10px;
+    left: 30px;
+    /*background-color: #d88acb;*/
+}
+
+.wrapper .main_container .item .form-img{ /*.form-img es la imagen de formulario*/
+    position: relative;
+    width: 350px;
+    height: 440px;
+    left: 60%; /*pq tiene 10px de left el form*/
+    bottom: calc(100%);
+    background-color: #e2e9fa;
+    border-radius: 2rem;
+}
+
+.illustration{
+  position: relative;
+   top: 5%;
+   left: 5%;
+   width: 100%;
+   height: 100%;
+}
+
+.insert-form{
+    max-width: 550px; 
+    width: 100%; /*el formulario se ajusta a su contenedor padre*/
+    /*background-color: #f7efef;*/
+    height: 100%;
+    margin: 0 auto; /*centrar el formulario*/
+    display: flex; /*todos los inputs y botones son objetos flex*/
+    flex-direction: column; /*coloca los inputs debajo del titulio y no al lado*/
+    justify-content: space-evenly; /*espacio entre los inputs y el titulo sea equitativo*/
+}
+
+.form-heading h1{
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--clr-primary);
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.form-heading p{
+    color: var(--clr-gray);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.input-wrap{ /*div que contiene el input y el label*/
+    position: relative; /*para poder meterle el label al input*/
+    width: 50%;
+    height: 37px; /*para que el input tenga el mismo alto que el label*/
+    margin-bottom: 1rem; /*espacio entre inputs*/
+    /*background-color: #969696;*/
+}
+
+.input-field{ /*clase de los inputs*/
+    position: absolute; /*para poder meterle el label al input*/
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #bbb; /*linea debajo del input*/
+    padding: 0; /*para que el texto se pegue al borde izq del input*/
+    font-size: 0.85rem; /*tamaño de la letra del input*/
+    color: #151111; /*color de la letra del input*/
+    transition: 0.4s; /*tiempo de transicion de la linea debajo del input para hacerse oscura cuando le escriben*/
+}
+
+.label{
+    position: absolute;
+    left: 0; /*para que el label este alineado a la izquierda*/
+    top: 50%; 
+    transform: translateY(-50%); /*para que el label este centrado verticalmente*/
+    font-size: 0.85rem; /*tamaño de la letra del label igual q input*/
+    color: #bbb; /*color de la letra del label igual q borde*/
+    pointer-events: none; /*para que el label no se pueda seleccionar*/
+    transition: 0.4s; /*tiempo para q el label se haga chiquito y para arriba*/
+ }
+
+.input-field.active{
+    border-bottom-color: var(--clr-primary); /*color de la linea debajo del input cuando esta activo*/
+ }
+
+.input-field.active + label{ /*label cuando el input esta activo*/
+    font-size: .75rem; /*se hace mas pequeño el label cuando input esta activo*/
+    top: -2px; /*label se hace hacia arriba*/
+
+ }
+
+.select{
+    width: 80%;
+}
+ 
+#select.submit-btn{
+    width: 40%;
+    height: 30px; 
+ }
+
+#bigger-select.submit-btn{
+    width: 80%;
+    height: 30px; 
+ }
+ 
+.submit-btn{
+    display: inline-block;
+    width: 50%;
+    height: 43px;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    transition: 0.3s;
+ }
+
+.submit-btn:hover{
+    background-color: #0b2f99;
+ }
+
+
+.atras{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(218, 104, 104);
+    text-decoration: underline;
+    width: 50%;
+    transition: 0.3s;
+ }
+
+.atras:hover{
+    color: rgb(230, 43, 43);
+ }
 
 
 

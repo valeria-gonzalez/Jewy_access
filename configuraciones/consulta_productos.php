@@ -27,8 +27,6 @@ $cerrar_conexion = pg_close($conexion);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
-        <link rel="stylesheet" href="../css/styles.css"> <!--link al archivo css-->
-        <link rel="stylesheet" href="../css/tablas.css">
         <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."metadata.html"); ?> 
         <title>Cliente consultado</title>
     </head>
@@ -40,9 +38,8 @@ $cerrar_conexion = pg_close($conexion);
             <div class = "main_container" >
                 <div class="item" id = "consulta-prod">
                     <h3 class="text-center">Coincidencias</h3>
-                    <button class="boton-personalizado" type="button" onclick="location.href='../secciones/vista_productos.php'">Atras</button>
                     <div class="table-responsive table-hover" id="tablaconsulta">
-                        <table class="styled-table">
+                        <table class="table">
                             <tbody>
                                 <?php                
                                     if(pg_num_rows($consulta) > 0){?>
@@ -67,17 +64,14 @@ $cerrar_conexion = pg_close($conexion);
                                 </tr>
                                 <?php } }
                                 //Si no hay nada relacionado que nos arroje este mensaje
-                                else{
-                                    echo "<script>
-                                                alert('No hay coincidencias');
-                                                history.back();
-                                            </script>";
-                                }
+                                else
+                                    echo "No hay resultados.";
                                 
                             ?>
                             </tbody>
                         </table>
                         <!-- Boton para retroceder o ir al inicio -->
+                        <button type="button" onclick="location.href='../secciones/vista_productos.php'">Atras</button>
                     </div>
                 </div> <!-- Fin de item -->
             </div> <!-- Fin de main_container -->

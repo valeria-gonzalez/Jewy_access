@@ -15,10 +15,8 @@
                     
             <div class = "main_container" >
                 <div class="item" id = "mod-ped">
-                    <header>
-                        <h3 class="text-center">Modificar Pedido</h3>
-                    </header>
-                    <section> <!-- Formulario para modificar pedido -->
+                    <div class = "form">  
+                     <!-- Formulario para modificar pedido -->
                         <?php 
                             include_once '../configuraciones/conexion_bd.php'; //incluimos conexion a la base de datos
                             include_once '../configuraciones/obten_mod_pedido.php'; //incluimos archivo para obtener dato ingresado en campos de texto
@@ -155,116 +153,140 @@
                                 }
                             }
                         ?>
+                        <div>
+                            <form  method = "post" autocomplete = "off" class = "insert-form"> <!-- formulario para modificar el pedido -->
+                                <div class = "form-heading">
+                                    <h1>Modificar Pedido</h1>
+                                    <h2>Id Pedido: <?php echo $id; ?></h2>
+                                    <p>Modifica tú pedido llenando los campos, por defecto vienen los valores originales dentro de los campos</p><br>
+                                </div> <!--end from-heading-->
+                                <!--FILA: Datos del pedido-->
+                                <div class = "input-wrap">
+                                    <input type = "text" name = "txtFecha" class = "input-field active" autocomplete = "off"
+                                            onfocus = "(this.type = 'date')" onblur = "if(!this.value) this.type = 'text'" value = "<?php echo $producto[2]; ?>"/>
+                                    <label class = "label">Fecha de Entrega</label> <!--Fecha de Entrega-->
+                                </div> <!--end input-wrap-->
 
-                        <form  method = "post"> <!-- formulario para modificar el pedido -->
-                            <!-- campo y boton id -->
-                            <br>
-                            <p><b>Id Pedido: <?php echo $id; ?></b></p>  <!--en cada campo de texto pondremos el valor del campo correspondiente-->
-                            
-                            <br> <!--FILA: Datos del pedido-->
-                            <label for = "txtFecha">Fecha de Entrega</label> <!--Fecha de Entrega-->
-                            <input type = "date" id = "txtFecha" name = "txtFecha" value = "<?php echo $producto[2]; ?>"/>
-                                    
-                            <label for = "txtHora">Hora de Entrega</label> <!--Hora de Entrega-->
-                            <input type = "time" id = "txtHora" name = "txtHora" value = "<?php echo $producto[3]; ?>"/>
+                                <div class = "input-wrap">
+                                    <input type = "time" name = "txtHora" class = "input-field active" autocomplete = "off"
+                                            onfocus = "(this.type = 'time')" onblur = "if(!this.value) this.type = 'text'"value = "<?php echo $producto[3]; ?>"/>
+                                    <label class = "label">Hora de Entrega</label> <!--Hora de Entrega-->
+                                </div> <!--end input-wrap-->
                                 
-                            <label for = "numPrecio">Precio</label> <!--Precio-->
-                            <input type = "number" id = "numPrecio" name = "numPrecio" step = "0.01" value = "<?php echo $producto[4]; ?>"/> <!-- Step 0.01 hace que puedas escoger2 decimales-->
-                            
-                            <br> <br> <!--SEPRADOR FILA: Datos de cliente-->
-                            <p><b> Datos del Cliente </b></p>
-                            
-                            <br><!--FILA: Select Cliente-->
-                            <label for = "selCliente">Elegir cliente</label> <!--Select Cliente-->
-                            <select name = "selCliente" id = "selCliente"> <!--el elemento select nos permite crear Cuadros combinados, este no tiene atributo multiple pq solo podra escoger un cliente-->
-                                <option>Escoger cliente</option> <!--la primera opcion del cuadro combinado es una indicacion-->
-                                    <?php 
-                                        //recorriendo por todos los clientes para llenar el cuadro de seleccion, solo recorre si existen registros de cliente en tabla cliente
-                                        while($cliente = pg_fetch_array($rsC)){  //$rsC es el resultado de la consulta de todos los clientes
-                                            echo "<option value = '$cliente[0]'> $cliente[1] $cliente[2] $cliente[3] </option>"; //cliente[0] es el id (el valor) y cliente[1] es el nombre (que se muestra en la opcion)
-                                                                    //ID_CLIENTE   //Nombre, primer apellido, segundo apellido
-                                            }      
+                                <div class = "input-wrap">
+                                    <input type = "text" class = "input-field active" autocomplete = "off" name = "numPrecio" value = "<?php echo $producto[4]; ?>"/> <!-- Step 0.01 hace que puedas escoger2 decimales-->
+                                    <label class = "label">Precio (ej: 0.00)</label> <!--Precio-->
+                                </div> <!--end input-wrap-->
+                                    
+                                <div class = "form-heading">
+                                    <p>Puedes modificar el cliente que ha realizado el pedido, es necesario tener al cliente registrado antes de asignarle un pedido</p>
+                                </div> <!--end from-heading-->
+                                    
+                                <select name = "selCliente" class = "select"> <!--el elemento select nos permite crear Cuadros combinados, este no tiene atributo multiple pq solo podra escoger un cliente-->
+                                    <option disabled>Escoger cliente</option> <!--la primera opcion del cuadro combinado es una indicacion-->
+                                        <?php 
+                                            //recorriendo por todos los clientes para llenar el cuadro de seleccion, solo recorre si existen registros de cliente en tabla cliente
+                                            while($cliente = pg_fetch_array($rsC)){  //$rsC es el resultado de la consulta de todos los clientes
+                                                echo "<option value = '$cliente[0]'> $cliente[1] $cliente[2] $cliente[3] </option>"; //cliente[0] es el id (el valor) y cliente[1] es el nombre (que se muestra en la opcion)
+                                                                        //ID_CLIENTE   //Nombre, primer apellido, segundo apellido
+                                                }      
+                                            ?>
+                                </select>
+                                        
+                                <div class = "form-heading">
+                                    <br><p>Modifica los datos relacionados al punto de entrega llenando los campos</p>
+                                </div> <!--end from-heading-->
+                                    
+                                <div class = "input-wrap">   
+                                    <input type = "text" name = "txtPuntoEntr" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[5]; ?>"/>
+                                    <label class = "label">Punto de Entrega</label> <!--Punto de Entrada-->
+                                </div> <!--end input-wrap-->
+
+                                <div class = "input-wrap">
+                                    <input type = "text" name = "txtCalle" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[6]; ?>"/>
+                                    <label class = "label">Calle</label> <!--Calle-->
+                                </div> <!--end input-wrap-->
+
+                                <div class = "input-wrap">
+                                    <input type = "text" name = "txtNoCasa" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[7]; ?>"/>
+                                    <label class = "label">No. Casa</label> <!--No. Casa-->
+                                </div> <!--end input-wrap-->    
+                                
+                                <div class = "input-wrap">
+                                    <input type = "text" name = "txtColonia" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[8]; ?>"/>
+                                    <label class = "label">Colonia</label> <!--Colonia-->
+                                </div> <!--end input-wrap-->
+                                
+                                <div class = "input-wrap">
+                                    <input type = "text" name = "txtEstado" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[9]; ?>"/>
+                                    <label class = "label">Estado</label> <!--Estado-->
+                                </div> <!--end input-wrap-->
+
+                                <div class = "input-wrap">
+                                    <input type = "text"  name = "txtPais" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[10]; ?>"/>
+                                    <label class = "label">Pais</label> <!--Pais-->
+                                </div> <!--end input-wrap-->
+                                
+                                <div class = "input-wrap">
+                                    <input type = "text" name = "txtCodPos" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[11]; ?>"/>
+                                    <label class = "label">Codigo Postal</label> <!--Codigo Postal-->
+                                </div> <!--end input-wrap-->
+
+                                <div class = "input-wrap">
+                                    <input type = "text" name = "txtReferencia" class = "input-field active" autocomplete = "off" value = "<?php echo $producto[12]; ?>"/>
+                                    <label class = "label">Referencia</label> <!--Referencia-->
+                                </div> <!--end input-wrap-->
+                                    <!--boton para modificar datos generales-->
+                                <input type = "submit" name = "btnGenerico" value = "Modificar Pedido" class = "submit-btn"/>
+
+                            </form> <!--fin del formulario-->
+                        </div> <!--fin de la seccion para modificar campos-->
+
+                        <div> <!--seccion para modificar y elegir productos del pedido--> 
+                            <form method = "POST">
+                                <div class = "form-heading">
+                                    <p>Después de modificar tú pedido, puedes modificar los materiales que contiene, puedes eliminar todos los productos que tenía o elegir uno a uno el producto a eliminar/agregar (con su cantidad)</p>
+                                </div> <!--end from-heading-->
+                                
+                                <!--boton para eliminar todos los productos existentes-->
+                                <input type = "submit" name = "btnGenerico" value = "Eliminar todos productos existentes" class = "submit-btn" id = "bigger-select"/> 
+                                        
+                                <!--FILA: Productos que lleva el pedido -->
+                                <select name = "selProducto" class = "select"> <!--se le debe poner corchetes al nombre y atributo multiple para indicar que gurdara un arreglo de selecciones-->
+                                    <option disabled>Escoger producto</option> <!--la primera opcion solo da indicaciones-->
+                                        <?php 
+                                            //recorriendo por todos los materiales, $rsP es el resultado de la consulta de todos los productos
+                                            while($producto = pg_fetch_array($rsP)){ //primero obtenemos todos los registros uno por uno guardando sus valores en un arreglo,y recorre siempre y cuando no este vacio
+                                                echo "<option value = '$producto[0]'> $producto[1] </option>"; //material[0] es el id (el valor) y material[1] es el nombre (que se muestra en la opcion)
+                                            }   //se ponen esos valores en cada una de las opciones  
                                         ?>
-                            </select>
+                                </select>
                                 
-                            <br> <br> <!--FILA Separador: Datos de la entrega-->
-                            <p><b>Datos de Entrega</b></p>
-                            
-                            <br><!--FILA: Datos de entrega-->
-                            <label for = "txtPuntoEntr">Punto de Entrega</label> <!--Punto de Entrada-->
-                            <input type = "text" id = "txtPuntoEntr" name = "txtPuntoEntr"  size = "10" value = "<?php echo $producto[5]; ?>"/>
+                                <br><br>
+                                <label>Cantidad</label> <!--Campo para ingresar cantidad de producto-->
+                                <input type="number" name="numCantidad"><br><br>
 
-                            <label for = "txtCalle">Calle</label> <!--Calle-->
-                            <input type = "text" id= "txtCalle" name = "txtCalle" size = "30" value = "<?php echo $producto[6]; ?>"/>
+                                <!--boton para agregar producto-->
+                                <input type = "submit" name = "btnGenerico" value = "Agregar Producto" class = "submit-btn" id = "select"/>  
+                                
+                                <!--boton para eliminar producto-->
+                                <input type = "submit" name = "btnGenerico" value = "Eliminar Producto" class = "submit-btn" id = "select"/>
+                                
+                                <!--boton para regresar a la vista de pedidos-->
+                                <button type="button" class = "atras" onclick="location.href='../secciones/vista_pedidos.php'">Atras</button>
+                            </form> <!--fin del formulario para modificar productos-->
+                        </div> <!--fin de la seccion para modificar productos-->
+                    </div> <!--end form-->
 
-                            <label for = "txtNoCasa">No. Casa</label> <!--No. Casa-->
-                            <input type = "text" id = "txtNoCasa" name = "txtNoCasa" size = "5" value = "<?php echo $producto[7]; ?>"/>
-                            
-                            <br> <br>
-                            <label for = "txtColonia">Colonia</label> <!--Colonia-->
-                            <input type = "text" id = "txtColonia" name = "txtColonia"  size = "25" value = "<?php echo $producto[8]; ?>"/>
-
-                            <label for = "txtEstado">Estado</label> <!--Estado-->
-                            <input type = "text" id = "txtEstaddo" name = "txtEstado" size = "25" value = "<?php echo $producto[9]; ?>"/>
-
-                            <label for = "txtPais">Pais</label> <!--Pais-->
-                            <input type = "text"  id = "txtPais" name = "txtPais" size = "25" value = "<?php echo $producto[10]; ?>"/>
-
-                            <br> <br> <!--FILA: Tercera fila de datos de entrega-->
-                            <label for = "txtCodPos">Codigo Postal</label> <!--Codigo Postal-->
-                            <input type = "text" id = "txtCodPos" name = "txtCodPos"  size = "25" value = "<?php echo $producto[11]; ?>"/>
-
-                            <label for = "txtReferencia">Referencia</label> <!--Referencia-->
-                            <input type = "text" id = "txtReferencia" name = "txtReferencia" size = "30" value = "<?php echo $producto[12]; ?>"/>
-                                    
-                            <!--boton para modificar datos generales-->
-                            <input type = "submit" name = "btnGenerico" value = "Modificar Pedido"/>
-
-                        </form> <!--fin del formulario-->
-                    </section> <!--fin de la seccion para modificar campos-->
-
-                    <section> <!--seccion para modificar y elegir productos del pedido-->
-                        <br> 
-                        <form method = "POST">
-                            <p><b>Escoger productos del pedido</b></p>
-                            
-                            <br> <!--boton para eliminar todos los productos existentes-->
-                            <input type = "submit" name = "btnGenerico" value = "Eliminar todos productos existentes"/> 
-                                    
-                            <br> <br> <!--FILA: Productos que lleva el pedido -->
-                            <label for = "selProducto">Elegir producto</label> <!--Select Cliente--> <!--Hare un multiselect que permita escoger los productos que lleva el pedido-->
-                            <select name = "selProducto" id = "selProducto"> <!--se le debe poner corchetes al nombre y atributo multiple para indicar que gurdara un arreglo de selecciones-->
-                                <option>Escoger producto</option> <!--la primera opcion solo da indicaciones-->
-                                    <?php 
-                                        //recorriendo por todos los materiales, $rsP es el resultado de la consulta de todos los productos
-                                        while($producto = pg_fetch_array($rsP)){ //primero obtenemos todos los registros uno por uno guardando sus valores en un arreglo,y recorre siempre y cuando no este vacio
-                                            echo "<option value = '$producto[0]'> $producto[1] </option>"; //material[0] es el id (el valor) y material[1] es el nombre (que se muestra en la opcion)
-                                        }   //se ponen esos valores en cada una de las opciones  
-                                    ?>
-                            </select>
-                            
-                            <label for = "numCantidad">Cantidad</label> <!--Campo para ingresar cantidad de producto-->
-                            <input type="number" id = "numCantidad" name="numCantidad">
-
-                            <!--boton para agregar producto-->
-                            <input type = "submit" name = "btnGenerico" value = "Agregar Producto"/>  
-                            
-                            <!--boton para eliminar producto-->
-                            <input type = "submit" name = "btnGenerico" value = "Eliminar Producto"/>
-                                    
-                        </form> <!--fin del formulario para modificar productos-->
-                    </section> <!--fin de la seccion para modificar productos-->
-                    
-                    <section> 
-                        <br> <br>
-                        <!--boton para regresar a la vista de pedidos-->
-                        <a id = "Regresar" href= "../secciones/vista_pedidos.php" >
-                            <button class = "button">Regresar</button>
-                        </a> 
-                    </section> <!--fin de la seccion para regresar a la vista de pedidos-->
+                    <div class = "form-img">
+                        <div class = "illustration">
+                            <img src = "../src/icon-mat.png" alt = "form illustration" />
+                        </div>  <!--end illustration-->
+                    </div> <!--end form-img-->
                 </div> <!-- Fin de item -->
             </div> <!-- Fin de main_container -->
         </div> <!-- Fin de la clase wrapper -->
+        <script src="../js/labels.js"></script> <!--link al archivo js-->  
     </body>
 </html>
 
