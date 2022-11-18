@@ -276,7 +276,7 @@ img {
 }
 
 #form-ped.item{
-    height: 1160px;
+    height: 1170px;
 }
 
 #form-clien.item{
@@ -345,6 +345,10 @@ img {
     margin-top: 10px;
 }
 
+.form-heading span{
+    color:#ff0000;
+}
+
 .input-wrap{ /*div que contiene el input y el label*/
     position: relative; /*para poder meterle el label al input*/
     width: 50%;
@@ -377,6 +381,10 @@ img {
     pointer-events: none; /*para que el label no se pueda seleccionar*/
     transition: 0.4s; /*tiempo para q el label se haga chiquito y para arriba*/
  }
+
+ label span{
+    color:#ff0000;
+  }
 
 .input-field.active{
     border-bottom-color: var(--clr-primary); /*color de la linea debajo del input cuando esta activo*/

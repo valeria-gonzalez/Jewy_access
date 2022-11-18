@@ -12,7 +12,7 @@
     <body>
         <div class = "wrapper" id = "reg-ped">
             <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."header-nav.html"); ?> <!--codigo php usado para incluir el header sin necesidad del codigo-->
-                        
+            
             <div class = "main_container">
                 <div class="item" id = "form-ped">
                     <div class = "form">    
@@ -38,7 +38,7 @@
                                 if($consulta)
                                 {
                                     echo "<script>
-                                                alert('El cliente se registro correctamente');
+                                                alert('El cliente se registro correctamente, recuerda que un pedido debe tener al menos un producto');
                                                 history.back();
                                             </script>";
                                 }else{
@@ -79,61 +79,61 @@
 
                                 <div class = "input-wrap">
                                     <input type="text" name="fecha_entrega" onfocus = "(this.type = 'date')" onblur = "if(!this.value) this.type = 'text'" class = "input-field" autocomplete = "off" required>
-                                    <label class = "label">Fecha de entrega</label>
+                                    <label class = "label">Fecha de entrega<span>*</span></label>
                                 </div> <!--end input-wrap-->
                                     
                                 <div class = "input-wrap">
                                     <input type="text" name="hora_entrega" onfocus = "(this.type = 'time')" onblur = "if(!this.value) this.type = 'text'" class = "input-field" autocomplete = "off" required>
-                                    <label class = "label">Hora de entrega</label>
+                                    <label class = "label">Hora de entrega<span>*</span></label>
                                 </div> <!--end input-wrap-->
                                     
                                 <div class = "input-wrap">
                                     <input type="text" name="precio" class = "input-field" autocomplete = "off" required>
-                                    <label class = "label">Precio (ej: 0.00)</label>
+                                    <label class = "label">Precio (ej: 0.00)<span>*</span></label>
                                 </div> <!--end input-wrap-->
 
                                 <div class = "input-wrap">                                                                        
-                                    <input type="text" name="punto_entrega" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="punto_entrega" class = "input-field" autocomplete = "off">
                                     <label class = "label">Punto de entrega</label>
                                 </div> <!--end input-wrap-->
                                     
                                 <div class = "input-wrap">
-                                    <input type="text" name="calle" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="calle" class = "input-field" autocomplete = "off">
                                     <label class = "label">Calle</label>
                                 </div> <!--end input-wrap-->
                                     
                                 <div class = "input-wrap">
-                                    <input type="text" name="no_casa" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="no_casa" class = "input-field" autocomplete = "off">
                                     <label class = "label">Numero de casa</label>
                                 </div> <!--end input-wrap-->
 
                                 <div class = "input-wrap">    
-                                    <input type="text" name="colonia" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="colonia" class = "input-field" autocomplete = "off">
                                     <label class = "label">Colonia</label>
                                 </div> <!--end input-wrap-->
 
                                 <div class = "input-wrap">
-                                    <input type="text" name="estado" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="estado" class = "input-field" autocomplete = "off">
                                     <label class = "label">Estado</label>
                                 </div> <!--end input-wrap-->
                                 
                                 <div class = "input-wrap">
-                                    <input type="text" name="pais" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="pais" class = "input-field" autocomplete = "off">
                                     <label class = "label">Pais</label>
                                 </div> <!--end input-wrap-->
                                 
                                 <div class = "input-wrap">
-                                    <input type="text" name="codigo_postal" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="codigo_postal" class = "input-field" autocomplete = "off">
                                     <label class = "label">Codigo Postal</label>
                                 </div> <!--end input-wrap-->
                                 
                                 <div class = "input-wrap">
-                                    <input type="text" name="referencia" class = "input-field" autocomplete = "off" required>
+                                    <input type="text" name="referencia" class = "input-field" autocomplete = "off">
                                     <label class = "label">Referencia</label>
                                 </div> <!--end input-wrap-->
 
                                 <div class = "form-heading">
-                                    <p>Selecciona el cliente que ha realizado el pedido, es necesario tener al cliente registrado antes de asignarle un pedido</p>
+                                    <p>Selecciona el cliente que ha realizado el pedido, es necesario tener al cliente registrado antes de asignarle un pedido <span>*</span></p>
                                 </div> <!--end from-heading-->
                                 <select name="selCliente" required class = "select">
                                     <option disabled>Escoger cliente</option>
@@ -150,7 +150,7 @@
                         <div>
                             <form method="POST">
                                 <div class = "form-heading">
-                                    <p>Después de registrarlo, selecciona uno a uno el producto y la cantidad del mismo, que contendrá tú pedido </p>
+                                    <p>Después de registrarlo, selecciona uno a uno el producto y la cantidad del mismo, que contendrá tú pedido <span>*</span></p>
                                 </div> <!--end from-heading-->
                                 <select name = "selProducto" required class = "select">
                                     <option disabled>Escoger producto(s)</option>
@@ -162,8 +162,8 @@
                                     ?>
                                 </select><br><br>
                                 
-                                <label>Cantidad</label>
-                                <input type="text" name="cantidad" autocomplete = "off" required>
+                                <label>Cantidad<span>*</span></label>
+                                <input type="text" name="cantidad" autocomplete = "off" required><br><br>
 
                                 <input type="submit" name = "registro" value="Escoger productos" class = "submit-btn" id = "select">
                                 <button type="button" class = "atras" onclick="location.href='vista_pedidos.php'">Atras</button>

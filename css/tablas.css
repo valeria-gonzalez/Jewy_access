@@ -1,4 +1,18 @@
 /* CSS para la tabla de pedidos con 3 opciones */
+.buscar{
+    position: relative;
+    width: 300px;
+    height: 30px;
+    left: 26%;
+    bottom: 35px;
+}
+
+.btn-busq-wrap{
+    position: relative;
+    left: 102%;
+    bottom: 32px;
+}
+
 .styled-table {
     width: 100%;
     margin: 10px 0 0 0;
@@ -89,22 +103,22 @@ h3.text-center {
     margin: 10px 0 5px 0;
 }
 
-input.box {
+.box {
     border: 2px solid #004CC1;
-    width: 16%;
+    width: 300px;
     padding: 2px 20px 2px;
     text-align: left;
     border-radius: 15px;
-    margin: 8px 10px 5px 15px;
+    /*margin: 8px 10px 5px 15px;*/
     outline: none;
     transition: .5s;
     overflow: hidden;
     
 }
 
-input.boton-busq {
-    position: relative;
-    right: 50px;
+.boton-busq {
+    /*position: relative;
+    right: 50px;*/
     padding: 12px 20px;
     color: rgb(255, 255, 255);
     text-align: center;

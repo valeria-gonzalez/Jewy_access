@@ -33,7 +33,7 @@
                                         if($consulta)
                                         {
                                             echo "<script> 
-                                                    alert('El producto se registro correctamente');
+                                                    alert('El producto se registro correctamente, recuerda que un producto debe llevar al menos un material');
                                                     history.back();
                                                 </script>";
                                         }else{
@@ -75,22 +75,22 @@
 
                                     <div class = "input-wrap">
                                         <input type="text" name="nombre" class = "input-field" autocomplete = "off" required>
-                                        <label class = "label"> Nombre </label>
+                                        <label class = "label"> Nombre<span>*</span></label>
                                     </div> <!--end input-wrap nombre-->
 
                                     <div class = "input-wrap">
                                         <input type="text" name="categoria" class = "input-field" autocomplete = "off" required>
-                                        <label class = "label">Categoria</label>
+                                        <label class = "label">Categoria<span>*</span></label>
                                     </div> <!--end input-wrap categoria-->
 
                                     <div class = "input-wrap">
                                         <input type="text" name="precio" class = "input-field" autocomplete = "off" required>
-                                        <label class = "label">Precio (ej: 0.00)</label>
+                                        <label class = "label">Precio (ej: 0.00)<span>*</span></label>
                                     </div> <!--end input-wrap precio-->
 
                                     <div class = "input-wrap">
                                         <input type="text" name="existencia" class = "input-field" autocomplete = "off" required>
-                                        <label class = "label">Existencia</label>
+                                        <label class = "label">Existencia<span>*</span></label>
                                     </div> <!--end input-wrap existencia-->
 
                                     <input type="submit" name = "registro" value="Registrar producto" class = "submit-btn">
@@ -99,7 +99,7 @@
                             <div>
                                 <form method="POST">
                                     <div class = "form-heading">
-                                        <p>Selecciona los materiales que contendrá después de registrar tú producto</p>
+                                        <p>Selecciona los materiales que contendrá después de registrar tú producto<span>*</span></p>
                                     </div> <!--end from-heading-->
                                         
                                     <select name = "selMaterial[]" multiple class = "select" required>
