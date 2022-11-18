@@ -74,7 +74,7 @@
                             <form method="POST" autocomplete = "off" class = "insert-form">
                                 <div class = "form-heading">
                                     <h1>Registrar Pedido</h1>
-                                    <p>Ingresa un nuevo pedido llenando los campos</p>
+                                    <p>Ingresa un nuevo pedido llenando los campos y dale a registrar</p>
                                 </div> <!--end from-heading-->    
 
                                 <div class = "input-wrap">

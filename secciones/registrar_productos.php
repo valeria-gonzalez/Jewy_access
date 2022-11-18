@@ -70,7 +70,7 @@
                                 <form method="POST" autocomplete = "off" class = "insert-form">
                                     <div class = "form-heading">
                                             <h1>Registrar Producto</h1>
-                                            <p>Ingresa un nuevo producto llenando los campos</p>
+                                            <p>Ingresa un nuevo producto llenando los campos y dale a registrar</p>
                                     </div> <!--end from-heading-->
 
                                     <div class = "input-wrap">
@@ -80,7 +80,7 @@
 
                                     <div class = "input-wrap">
                                         <input type="text" name="categoria" class = "input-field" autocomplete = "off" required>
-                                        <label class = "label">Categoria<span>*</span></label>
+                                        <label class = "label">Categoria (H/M/O)<span>*</span></label>
                                     </div> <!--end input-wrap categoria-->
 
                                     <div class = "input-wrap">
@@ -89,7 +89,8 @@
                                     </div> <!--end input-wrap precio-->
 
                                     <div class = "input-wrap">
-                                        <input type="text" name="existencia" class = "input-field" autocomplete = "off" required>
+                                        <input type="text" name="existencia" onfocus = "(this.type = 'number')" 
+                                            onblur = "if(!this.value) this.type = 'text'" class = "input-field" autocomplete = "off" required>
                                         <label class = "label">Existencia<span>*</span></label>
                                     </div> <!--end input-wrap existencia-->
 

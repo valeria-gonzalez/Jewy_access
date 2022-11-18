@@ -158,7 +158,7 @@
                                     
                                 <div class = "input-wrap">
                                     <input type = "text" class = "input-field active" autocomplete = "off" name = "txtCategoria" value = "<?php echo $producto[2]; ?>"/>
-                                    <label class = "label">Categoria</label> <!-- campo categoria -->
+                                    <label class = "label">Categoria (H/M/O)</label> <!-- campo categoria -->
                                 </div> <!--end from-heading-->
                                 
                                 <div class = "input-wrap">
