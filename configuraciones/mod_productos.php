@@ -73,6 +73,10 @@
                                 }
 
                                 if($boton == 'Eliminar todos materiales existentes'){ //este boton elimina todos los materiales existentes
+                                    echo "<script>
+                                            alert('Un producto debe contener al menos un material, recuerda elegir los materiales que contendrá antes de finalizar');
+                                        </script>";
+                                    
                                     $pg_mat_elim = "DELETE FROM producto_hecho_con 
                                                     WHERE ID_PRODUCTO = $id";
 
@@ -128,7 +132,8 @@
 
                                     if($rpta){ //ventanas emergentes que avisan si se realizo la eliminacion o no
                                         echo "<script> 
-                                                alert('Se eliminaron los materiales del producto correctamente');
+                                                alert('Se eliminaron los materiales del producto correctamente, recuerda que un producto
+                                                debe tener al menos un material');
                                             </script>";
                                     }else{
                                         echo '<script> 

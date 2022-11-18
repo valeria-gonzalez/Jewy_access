@@ -45,12 +45,18 @@ $cerrar_conexion = pg_close($conexion);
 
                         <h3 class="text-center">Tabla Dinámica Productos</h3>
                         <button type="button" class="boton-personalizado" onclick="location.href='registrar_productos.php'">Registrar</button>
-                        <form action="../configuraciones/consulta_productos.php" method="get">
-                            <!-- Required para que no se pueda buscar el campo vacio, se puede personalizar -->
-                            <!-- Pero no se como :c -->
-                                <input class="box" type="text" name="search" placeholder="Ingrese el nombre a buscar" required>
-                                <input class="boton-busq" type="submit" name="enviar" value="Buscar">            
-                        </form>
+                        <div class = "buscar">
+                            <form action="../configuraciones/consulta_productos.php" method="get">
+                                <!-- Required para que no se pueda buscar el campo vacio, se puede personalizar -->
+                                <!-- Pero no se como :c -->
+                                <div>
+                                    <input class="box" type="text" name="search" placeholder="Ingrese el nombre a buscar" required>
+                                </div>  
+                                <div class = "btn-busq-wrap"> 
+                                    <input class="boton-busq" type="submit" name="enviar" value="Buscar">            
+                                </div>
+                            </form>
+                        </div>
                         <div class="table-responsive table-hover" id="tablaconsulta">
                             <table class="styled-table">
                                 <thead class="text-muted">

@@ -41,12 +41,18 @@ $cerrar_conexion = pg_close($conexion);
                 <div class="item" id = "tabla">
                     <h3 class="text-center">Tabla Dinámica Pedidos</h3>
                     <button type="button" class="boton-personalizado" onclick="location.href='registrar_pedidos.php'">Registrar</button>
-                    <form action="../configuraciones/consulta_pedidos.php" method="get">
-                        <!-- Verificacion para solo agregar numeros -->
-                        <input class="box" type="number" ondrop="return false"; onpaste="return false"; onkeypress="return event.charCode>=48 && event.charCode<=57" name="search" placeholder="Ingrese el ID a buscar" required>
-                        <input class="boton-busq" type="submit" name="enviar" value="Buscar">
-
-                    </form>
+                    <div class = "buscar-ped">
+                        <form action="../configuraciones/consulta_pedidos.php" method="get">
+                            <!-- Verificacion para solo agregar numeros -->
+                            
+                            <input class="box" type="text" onfocus = "(this.type = 'number')" onblur = "if(!this.value) this.type = 'text'"
+                                        ondrop="return false"; onpaste="return false"; onkeypress="return event.charCode>=48 && event.charCode<=57" name="search" placeholder="Ingrese el ID a buscar" required>
+                            
+                            
+                            <input class="boton-busq" type="submit" name="enviar" value="Buscar">
+                            
+                        </form>
+                    </div>
                         <div class="outer-wrapper">
                             <div class="table-wrapper">
                                 <table class="styled-table">                       

@@ -53,22 +53,22 @@
                                     <div class = "form-inputs"> 
                                         <div class = "input-wrap">
                                             <input type="text" name="nombre" class = "input-field" autocomplete = "off" required>
-                                            <label class = "label" >Nombre</label>
+                                            <label class = "label" >Nombre<span>*</span></label>
                                         </div> <!--end input-wrap nombre-->
 
                                         <div class = "input-wrap">
                                             <input type="text" name="proveedor" class = "input-field" autocomplete = "off" required>
-                                            <label class = "label">Proveedor</label>
+                                            <label class = "label">Proveedor<span>*</span></label>
                                         </div> <!--end input-wrap proveedor-->
 
                                         <div class = "input-wrap">
                                             <input type="text" name="precio" class = "input-field" autocomplete = "off" required>
-                                            <label class = "label">Precio</label>
+                                            <label class = "label">Precio<span>*</span></label>
                                         </div> <!--end input-wrap precio-->
 
                                         <div class = "input-wrap">
                                             <input type="text" name="existencia" class = "input-field" autocomplete = "off" required>
-                                            <label class = "label">Existencia</label>
+                                            <label class = "label">Existencia<span>*</span></label>
                                         </div> <!--end input-wrap existencia-->
 
                                         <input type="submit" name="registro" value="Registrar" class = "submit-btn"> <br>

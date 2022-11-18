@@ -56,22 +56,22 @@
 
                             <div class = "input-wrap">
                                 <input type="text" name="nombre" class = "input-field" autocomplete = "off" required>
-                                <label class = "label">Nombre(s)</label>
+                                <label class = "label">Nombre(s)<span>*</span></label>
                             </div> <!--end input-wrap-->
 
                             <div class = "input-wrap">  
                                 <input type="text" name="primer_apellido" class = "input-field" autocomplete = "off" required>
-                                <label class = "label">Primer Apellido</label>
+                                <label class = "label">Primer Apellido<span>*</span></label>
                             </div> <!--end input-wrap-->
 
                             <div class = "input-wrap">    
                                 <input type="text" name="segundo_apellido" class = "input-field" autocomplete = "off" required>
-                                <label class = "label">Segundo Apellido</label>
+                                <label class = "label">Segundo Apellido<span>*</span></label>
                             </div> <!--end input-wrap-->    
                             
                             <div class = "input-wrap">
                                 <input type="text" name="telefono" class = "input-field" autocomplete = "off" required>
-                                <label class = "label">Telefono</label>
+                                <label class = "label">Telefono<span>*</span></label>
                             </div> <!--end input-wrap-->
                             <!--Boton con el que registra los datos ingresados-->
                             <input type="submit" name = 'registro' value="Registrar" class = "submit-btn">

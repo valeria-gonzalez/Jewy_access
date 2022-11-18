@@ -97,6 +97,10 @@
                                 if($boton == 'Eliminar todos productos existentes'){ //este boton elimina todos los productos que contien el pedido, esto hace que ya no salga en la tabla
                                     //eliminar todos los productos en pedido_contiene 
                                     //con el id_edido que se esta modificando
+                                    echo "<script>
+                                            alert('Un pedido debe contener al menos un producto, recuerda elegir los productos que contendrá antes de finalizar');
+                                        </script>";
+                                    
                                     $pg_prod_elim = "DELETE FROM pedido_contiene 
                                                     WHERE ID_PEDIDO = $id";
 
@@ -104,7 +108,7 @@
 
                                     if($rpta){ //si se pudo actualizar mandamos una alerta, y si no, tambien
                                         echo "<script> 
-                                                alert('Se eliminaron los productos existentes del pedido correctamente');    
+                                                alert('Se eliminaron todos los productos del pedido correctamente');    
                                             </script>";
                                     } else {
                                         echo '<script> 
@@ -125,7 +129,7 @@
 
                                     if($rpta){ //si se pudo actualizar mandamos una alerta, y si no, tambien
                                         echo "<script> 
-                                                alert('Se agrego el producto al pedido correctamente');    
+                                                alert('Se agrego el producto al pedido correctamente, recuerda que un pedido debe tener al menos un producto');    
                                             </script>";
                                     } else {
                                         echo '<script> 
@@ -143,7 +147,8 @@
 
                                     if($rpta){
                                         echo "<script> 
-                                                alert('Se elimino el producto del pedido correctamente');    
+                                                alert('Se elimino el producto del pedido correctamente, recuerda que un pedido
+                                                        debe tener al menos un producto');    
                                             </script>";
                                     } else {
                                         echo '<script> 
@@ -263,7 +268,7 @@
                                 </select>
                                 
                                 <br><br>
-                                <label>Cantidad</label> <!--Campo para ingresar cantidad de producto-->
+                                <label>Cantidad <span>*</span></label> <!--Campo para ingresar cantidad de producto-->
                                 <input type="number" name="numCantidad"><br><br>
 
                                 <!--boton para agregar producto-->
