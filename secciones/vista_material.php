@@ -14,7 +14,7 @@ $consulta=pg_query($conexion,$query_consulta);
         <link rel="stylesheet" href="../css/tablas.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/Jewy_access/cabeceras/"; include($IPATH."metadata.html"); ?> 
-        <title>Tabla de clientes</title>
+        <title>Tabla de materiales</title>
     </head>
     <body>
     <div class = "wrapper" id = "vista-material">

@@ -34,27 +34,11 @@ CREATE TABLE pedido(
 	ID_CLIENTE		INT, /*declaramos primero el tipo dato de la lalve foranea, no le ponemos not null para cuando se elimina*/
 	
 	CONSTRAINT FK_CLIENTE FOREIGN KEY(ID_CLIENTE) REFERENCES cliente(ID_CLIENTE) 
-	ON DELETE SET NULL /*nos permite definir llave foranea y lo que se hace en demas tablas si se elimina*/
+	ON DELETE SET NULL, /*nos permite definir llave foranea y lo que se hace en demas tablas si se elimina*/
+	
+	CONSTRAINT MOD_CLIENTE FOREIGN KEY(ID_CLIENTE) REFERENCES cliente(ID_CLIENTE) 
+	ON UPDATE CASCADE
 );
-
-CREATE FUNCTION SP_VENDIDO() RETURNS TRIGGER
-AS
-$$
-BEGIN
-	insert into venta values (new.id_pedido,new.fecha_pedido,
-				  new.fecha_entrega,new.hora_entrega,
-				  new.precio,new.punto_entrega,new.calle,
-				  new.no_casa,new.colonia,new.estado,
-				  new.pais,new.codigo_postal,
-				  new.referencia,new.vendido,new.id_cliente);
-
-RETURN new;
-END
-$$ LANGUAGE PLPGSQL;
-
-CREATE TRIGGER TR_VENDIDO AFTER UPDATE OF VENDIDO ON pedido
-FOR EACH ROW
-EXECUTE PROCEDURE SP_VENDIDO();
 
 /*---Crear tabla PRODUCTO*/
 CREATE TABLE producto(
@@ -74,8 +58,16 @@ CREATE TABLE pedido_contiene(
 	
 	CONSTRAINT FK_PED_CONT FOREIGN KEY(ID_PEDIDO) REFERENCES pedido(ID_PEDIDO) 
 	ON DELETE CASCADE, /*como la llave primaria es conmpuesta, podemos referenciar cada campo como clave extera*/
+	
 	CONSTRAINT FK_PROD_CONT FOREIGN KEY(ID_PRODUCTO) REFERENCES producto(ID_PRODUCTO) 
-	ON DELETE CASCADE
+	ON DELETE CASCADE,
+	
+	CONSTRAINT MOD_PED_CONT FOREIGN KEY(ID_PEDIDO) REFERENCES pedido(ID_PEDIDO) 
+	ON UPDATE CASCADE, /*como la llave primaria es conmpuesta, podemos referenciar cada campo como clave extera*/
+	
+	CONSTRAINT MOD_PROD_CONT FOREIGN KEY(ID_PRODUCTO) REFERENCES producto(ID_PRODUCTO) 
+	ON UPDATE CASCADE
+	
 );
 
 /*---Crear tabla MATERIAL*/
@@ -94,8 +86,15 @@ CREATE TABLE producto_hecho_con(
 	
 	CONSTRAINT FK_PROD_HECHO FOREIGN KEY(ID_PRODUCTO) REFERENCES producto(ID_PRODUCTO) 
 	ON DELETE CASCADE,  /* NUEVO!!!! aqui ponemos delete cascade para q se elimine registro si se elimina un material)*/
+	
 	CONSTRAINT FK_MAT_HECHO FOREIGN KEY(ID_MATERIAL) REFERENCES material(ID_MATERIAL) 
-	ON DELETE CASCADE 
+	ON DELETE CASCADE, 
+	
+	CONSTRAINT MOD_PROD_HECHO FOREIGN KEY(ID_PRODUCTO) REFERENCES producto(ID_PRODUCTO) 
+	ON UPDATE CASCADE,  /* NUEVO!!!! aqui ponemos delete cascade para q se elimine registro si se elimina un material)*/
+	
+	CONSTRAINT MOD_MAT_HECHO FOREIGN KEY(ID_MATERIAL) REFERENCES material(ID_MATERIAL) 
+	ON UPDATE CASCADE 
 );
 
 /*----Crear tabla VENTA*/
@@ -117,8 +116,33 @@ CREATE TABLE venta(
 	ID_CLIENTE		INT, 
 	
 	CONSTRAINT FK_CLIENTE FOREIGN KEY(ID_CLIENTE) REFERENCES cliente(ID_CLIENTE) 
-	ON DELETE SET NULL /*nos permite definir llave foranea y lo que se hace en demas tablas si se elimina*/
+	ON DELETE SET NULL, /*nos permite definir llave foranea y lo que se hace en demas tablas si se elimina*/
+	
+	CONSTRAINT MOD_CLIENTE FOREIGN KEY(ID_CLIENTE) REFERENCES cliente(ID_CLIENTE) 
+	ON UPDATE CASCADE 
 );
+
+/*------TRIGGER PARA PASAR PEDIDO VENDIDO A TABLA VENTAS-----------*/
+CREATE FUNCTION SP_VENDIDO() RETURNS TRIGGER
+AS
+$$
+BEGIN
+	insert into venta values (new.id_pedido,new.fecha_pedido,
+				  new.fecha_entrega,new.hora_entrega,
+				  new.precio,new.punto_entrega,new.calle,
+				  new.no_casa,new.colonia,new.estado,
+				  new.pais,new.codigo_postal,
+				  new.referencia,new.vendido,new.id_cliente);
+
+RETURN new;
+END
+$$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER TR_VENDIDO AFTER UPDATE OF VENDIDO ON pedido
+FOR EACH ROW
+EXECUTE PROCEDURE SP_VENDIDO();
+
+/*-----TRIGGER PARA ELIMINAR PEDIDO VENDIDO DE TABLA PEDIDOS-------*/
 
 CREATE FUNCTION SP_ELIMINARPED() RETURNS TRIGGER
 AS

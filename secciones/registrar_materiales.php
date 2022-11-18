@@ -47,7 +47,7 @@
 
                                     <div class = "form-heading">
                                         <h1>Registrar Material</h1>
-                                        <p>Ingresa un nuevo material llenando los campos</p>
+                                        <p>Ingresa un nuevo material llenando los campos y dale a registrar</p>
                                     </div> <!--end from-heading-->
 
                                     <div class = "form-inputs"> 
@@ -63,11 +63,12 @@
 
                                         <div class = "input-wrap">
                                             <input type="text" name="precio" class = "input-field" autocomplete = "off" required>
-                                            <label class = "label">Precio<span>*</span></label>
+                                            <label class = "label">Precio (ej: 0.00)<span>*</span></label>
                                         </div> <!--end input-wrap precio-->
 
                                         <div class = "input-wrap">
-                                            <input type="text" name="existencia" class = "input-field" autocomplete = "off" required>
+                                            <input type="text" name="existencia" onfocus = "(this.type = 'number')" 
+                                            onblur = "if(!this.value) this.type = 'text'" class = "input-field" autocomplete = "off" required>
                                             <label class = "label">Existencia<span>*</span></label>
                                         </div> <!--end input-wrap existencia-->
 
